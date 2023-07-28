@@ -46,8 +46,8 @@ class Commands extends \TelegramBot\Plugin
             // Sending the image
             yield Request::sendPhoto([
                 'chat_id' => $message->getChat()->getId(),
-                'photo' => 'http://afriluckstaging3.afriluck.com/assets/carousels/cr-desk-6b.jpg',  // Replace with your image URL
-                // 'caption' => "*Let's get started*",  // Optional caption if you want
+                'photo' => 'http://afriluckstaging3.afriluck.com/assets/carousels/cr-desk-6b.jpg',
+                'caption' => "*Let's get started*",  
                 'parse_mode' => ParseMode::MARKDOWN,
             ]);
             
