@@ -31,11 +31,12 @@ class Commands extends \TelegramBot\Plugin
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
                 'parse_mode' => ParseMode::MARKDOWN,
-                'text' => "*Let's get started* 🍟 \n\nPlease tap the button below to order your perfect lunch!",
+                // 'text' => "*Let's get started* 🍟 \n\nPlease tap the button below to choose options!",
+                'text' => "*Let's get started* \n\nPlease tap the button below to choose options!",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
                     [
                         // InlineKeyboardButton::make('Order Food')->setWebApp($_ENV['RESOURCE_PATH']),
-                        InlineKeyboardButton::make('Play Lottery')->setWebApp($_ENV['RESOURCE_PATH']),
+                        InlineKeyboardButton::make('Play Lottery')->setWebApp("https://telegram.afriluck.com/"),
                     ]
                 ])
             ]);
