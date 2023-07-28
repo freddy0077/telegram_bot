@@ -27,20 +27,43 @@ class Commands extends \TelegramBot\Plugin
      */
     public function onMessage(int $update_id, Message $message): \Generator
     {
+        // if ($message->getText() == '/start' || $message->getText() == '/order') {
+        //     yield Request::sendMessage([
+        //         'chat_id' => $message->getChat()->getId(),
+        //         'parse_mode' => ParseMode::MARKDOWN,
+        //         // 'text' => "*Let's get started* 🍟 \n\nPlease tap the button below to choose options!",
+        //         'text' => "*Let's get started* \n\nPlease tap the button below to choose options!",
+        //         'reply_markup' => InlineKeyboard::make()->setKeyboard([
+        //             [
+        //                 // InlineKeyboardButton::make('Order Food')->setWebApp($_ENV['RESOURCE_PATH']),
+        //                 InlineKeyboardButton::make('Play Lottery')->setWebApp("https://telegram.afriluck.com/"),
+        //             ]
+        //         ])
+        //     ]);
+        // }
+
         if ($message->getText() == '/start' || $message->getText() == '/order') {
+            // Sending the image
+            yield Request::sendPhoto([
+                'chat_id' => $message->getChat()->getId(),
+                'photo' => 'http://afriluckstaging3.afriluck.com/assets/carousels/cr-desk-6b.jpg',  // Replace with your image URL
+                // 'caption' => "*Let's get started*",  // Optional caption if you want
+                'parse_mode' => ParseMode::MARKDOWN,
+            ]);
+            
+            // Sending the message with the button
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
                 'parse_mode' => ParseMode::MARKDOWN,
-                // 'text' => "*Let's get started* 🍟 \n\nPlease tap the button below to choose options!",
-                'text' => "*Let's get started* \n\nPlease tap the button below to choose options!",
+                'text' => "Please tap the button below to choose options!",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
                     [
-                        // InlineKeyboardButton::make('Order Food')->setWebApp($_ENV['RESOURCE_PATH']),
                         InlineKeyboardButton::make('Play Lottery')->setWebApp("https://telegram.afriluck.com/"),
                     ]
                 ])
             ]);
         }
+        
 
         if ($message->getText() == '/test') {
             yield Request::sendMessage([
@@ -55,13 +78,24 @@ class Commands extends \TelegramBot\Plugin
             ]);
         }
 
+        // if ($message->getText() == '/help') {
+        //     yield Request::sendMessage([
+        //         'chat_id' => $message->getChat()->getId(),
+        //         'text' => "This is the help page. You can use the following commands:\n\n" .
+        //             "/start - Start the bot\n" .
+        //             "/order - Order a burger\n" .
+        //             "/test - Test the web app\n" .
+        //             "/help - Show this help page"
+        //     ]);
+        // }
+
         if ($message->getText() == '/help') {
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
                 'text' => "This is the help page. You can use the following commands:\n\n" .
                     "/start - Start the bot\n" .
-                    "/order - Order a burger\n" .
-                    "/test - Test the web app\n" .
+                    "/results - Last results\n" .
+                    "/history - Transaction history\n" .
                     "/help - Show this help page"
             ]);
         }
