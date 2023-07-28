@@ -42,7 +42,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Choose</span>
+				<span class="button-item-label">Play</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -66,7 +66,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Choose</span>
+				<span class="button-item-label">Play</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -90,7 +90,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Choose</span>
+				<span class="button-item-label">Play</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -114,7 +114,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Choose</span>
+				<span class="button-item-label">Play</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -139,7 +139,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Choose</span>
+				<span class="button-item-label">Play</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -163,7 +163,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Choose</span>
+				<span class="button-item-label">Play</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -187,7 +187,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Choose</span>
+				<span class="button-item-label">Play</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -211,7 +211,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Choose</span>
+				<span class="button-item-label">Play</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -235,7 +235,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Choose</span>
+				<span class="button-item-label">Play</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -259,7 +259,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Choose</span>
+				<span class="button-item-label">Play</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -283,7 +283,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Choose</span>
+				<span class="button-item-label">Play</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
