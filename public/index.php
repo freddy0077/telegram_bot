@@ -42,7 +42,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Add</span>
+				<span class="button-item-label">Choose</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -66,7 +66,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Add</span>
+				<span class="button-item-label">Choose</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -90,7 +90,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Add</span>
+				<span class="button-item-label">Choose</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -107,14 +107,14 @@
 		</div>
 		<div class="cafe-item-label">
 			<span class="cafe-item-title">Direct 1</span>
-			<span class="cafe-item-price">GHS1</span>
+			<span class="cafe-item-price"></span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Add</span>
+				<span class="button-item-label">Choose</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -132,14 +132,14 @@
 
 		<div class="cafe-item-label">
 			<span class="cafe-item-title">Direct 2</span>
-			<span class="cafe-item-price">GHS1</span>
+			<span class="cafe-item-price"></span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Add</span>
+				<span class="button-item-label">Choose</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -156,14 +156,14 @@
 		</div>
 		<div class="cafe-item-label">
 			<span class="cafe-item-title">Direct 3</span>
-			<span class="cafe-item-price">GHS1</span>
+			<span class="cafe-item-price"></span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Add</span>
+				<span class="button-item-label">Choose</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -180,14 +180,14 @@
 		</div>
 		<div class="cafe-item-label">
 			<span class="cafe-item-title">Direct 4</span>
-			<span class="cafe-item-price">GHS1</span>
+			<span class="cafe-item-price"></span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Add</span>
+				<span class="button-item-label">Choose</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -204,14 +204,14 @@
 		</div>
 		<div class="cafe-item-label">
 			<span class="cafe-item-title">Direct 5</span>
-			<span class="cafe-item-price">GHS1</span>
+			<span class="cafe-item-price"></span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Add</span>
+				<span class="button-item-label">Choose</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -228,14 +228,14 @@
 		</div>
 		<div class="cafe-item-label">
 			<span class="cafe-item-title">Direct 6</span>
-			<span class="cafe-item-price">GHS1</span>
+			<span class="cafe-item-price"></span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Add</span>
+				<span class="button-item-label">Choose</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -245,21 +245,21 @@
 		<div class="cafe-item-photo">
 			<picture class="cafe-item-lottie js-item-lottie">
 				<source type="application/x-tgsticker" srcset="./img/tgs/Icecream.tgs">
-				<img src="./img/Icecream_148.png"
+				<img src="./img/rsz_lottery-circle.png"
 				     style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iLTMwMCUiIHgyPSItMjAwJSIgeTE9IjAiIHkyPSIwIj48c3RvcCBvZmZzZXQ9Ii0xMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjMwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjExMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MSIgZnJvbT0iLTMwMCUiIHRvPSIxMjAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MiIgZnJvbT0iLTIwMCUiIHRvPSIxMzAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBmaWxsPSJ1cmwoI2cpIiBkPSJNMjU2LDQ4NGMtMTctMi00NSwzLTU5LTktMTAtOS0xNy05NS0xNi0xMDgsMS0yNi0xMC0xMi0xNC0yMy0yLTYsNy0xMSw2LTE1LTItNy0xOC0xOC0yMi0yNi00LTctNC0yMC04LTI3LTgtMTEtMjMtMTItMjctMjktOS0zNiwyNS0zMywzMi00MywxMC0xNS0yLTMxLDEtNDgsNS0zMiw0Ny0zOCw3MC01MiwxNS05LDI5LTMxLDEwLTQ0LTgtNS0xNS0yLTIzLTUtMjMtOCw0NC0xMiw0NC0xMiwzOCwwLDkxLDE5LDk2LDYzLDIsMjEtMTMsMzgtMyw1OCwxLDQsNywzLDEwLDUsMTgsMTMsMjEsMzIsMTIsNTAsMCwxLDEyLDcsMTMsNyw3LDUsMTYsMTYsMTUsMjYtMiwxNy0yMiwxNC0yNywyNi00LDEwLTUsMjEtMTIsMzItMyw1LTE3LDE0LTE5LDE5LDEsMyw4LDksNywxNC0xLDYtMTAsMy0xMiw2LTQsOCwxLDE5LTEsMjctMiwxMi0xMyw5NS0yMSwxMDAtMTQsOC0zNyw3LTUyLDh6Ii8+PC9zdmc+');"
 				     alt="Icecream">
 			</picture>
 		</div>
 		<div class="cafe-item-label">
-			<span class="cafe-item-title">Icecream</span>
-			<span class="cafe-item-price">$5.99</span>
+			<span class="cafe-item-title">Perm 2</span>
+			<span class="cafe-item-price"></span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Add</span>
+				<span class="button-item-label">Choose</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -269,21 +269,21 @@
 		<div class="cafe-item-photo">
 			<picture class="cafe-item-lottie js-item-lottie">
 				<source type="application/x-tgsticker" srcset="./img/tgs/Cookie.tgs">
-				<img src="./img/Cookie_148.png"
+				<img src="./img/rsz_lottery-circle.png"
 				     style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iLTMwMCUiIHgyPSItMjAwJSIgeTE9IjAiIHkyPSIwIj48c3RvcCBvZmZzZXQ9Ii0xMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjMwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjExMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MSIgZnJvbT0iLTMwMCUiIHRvPSIxMjAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MiIgZnJvbT0iLTIwMCUiIHRvPSIxMzAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBmaWxsPSJ1cmwoI2cpIiBkPSJNMjY5LDQ0MmMtNTIsMC0xMTMtMTUtMTUzLTQ5LTE2OS0xNDMsMzItMzkyLDIyMC0zMTcsMTk2LDc5LDEzOCwzNjEtNjcsMzY2eiIvPjwvc3ZnPg==');"
 				     alt="Cookie">
 			</picture>
 		</div>
 		<div class="cafe-item-label">
-			<span class="cafe-item-title">Cookie</span>
-			<span class="cafe-item-price">$3.99</span>
+			<span class="cafe-item-title">Perm 3</span>
+			<span class="cafe-item-price"></span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Add</span>
+				<span class="button-item-label">Choose</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
@@ -293,25 +293,76 @@
 		<div class="cafe-item-photo">
 			<picture class="cafe-item-lottie js-item-lottie">
 				<source type="application/x-tgsticker" srcset="./img/tgs/Flan.tgs">
-				<img src="./img/Flan_148.png"
+				<<img src="./img/rsz_lottery-circle.png"
 				     style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iLTMwMCUiIHgyPSItMjAwJSIgeTE9IjAiIHkyPSIwIj48c3RvcCBvZmZzZXQ9Ii0xMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjMwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjExMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MSIgZnJvbT0iLTMwMCUiIHRvPSIxMjAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MiIgZnJvbT0iLTIwMCUiIHRvPSIxMzAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBmaWxsPSJ1cmwoI2cpIiBkPSJNMjU0LDQzMWMtNjgtMS0xNDQtMTUtMTk1LTYzLTUyLTQ4LTUxLTExNSwyLTE2MywxOC0xNyw2NS0zNCw3NC00Miw4LTgsOS0yMSwxOS0yOSw0MC0zNiwxMjAtMzcsMTY5LTE5LDE2LDYsMzQsMTQsNDQsMjksNCw1LDQsMTMsOSwxOCw4LDksMzIsMTQsNDMsMjAsNDMsMjYsODMsNzEsNzEsMTI1LTIyLDk2LTE1MywxMjQtMjM3LDEyNHoiLz48L3N2Zz4=');"
 				     alt="Flan">
 			</picture>
 		</div>
 		<div class="cafe-item-label">
-			<span class="cafe-item-title">Flan</span>
-			<span class="cafe-item-price">$7.99</span>
+			<span class="cafe-item-title">Perm 4</span>
+			<span class="cafe-item-price"></span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
-				<span class="button-item-label">Add</span>
+				<span class="button-item-label">Choos</span>
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
 	</div>
+
+	<div class="cafe-item js-item" data-item-id="12" data-item-price="7990">
+		<div class="cafe-item-counter js-item-counter">1</div>
+		<div class="cafe-item-photo">
+			<picture class="cafe-item-lottie js-item-lottie">
+				<source type="application/x-tgsticker" srcset="./img/tgs/Flan.tgs">
+				<<img src="./img/rsz_lottery-circle.png"
+				     style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iLTMwMCUiIHgyPSItMjAwJSIgeTE9IjAiIHkyPSIwIj48c3RvcCBvZmZzZXQ9Ii0xMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjMwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjExMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MSIgZnJvbT0iLTMwMCUiIHRvPSIxMjAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MiIgZnJvbT0iLTIwMCUiIHRvPSIxMzAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBmaWxsPSJ1cmwoI2cpIiBkPSJNMjU0LDQzMWMtNjgtMS0xNDQtMTUtMTk1LTYzLTUyLTQ4LTUxLTExNSwyLTE2MywxOC0xNyw2NS0zNCw3NC00Miw4LTgsOS0yMSwxOS0yOSw0MC0zNiwxMjAtMzcsMTY5LTE5LDE2LDYsMzQsMTQsNDQsMjksNCw1LDQsMTMsOSwxOCw4LDksMzIsMTQsNDMsMjAsNDMsMjYsODMsNzEsNzEsMTI1LTIyLDk2LTE1MywxMjQtMjM3LDEyNHoiLz48L3N2Zz4=');"
+				     alt="Flan">
+			</picture>
+		</div>
+		<div class="cafe-item-label">
+			<span class="cafe-item-title">Perm 5</span>
+			<span class="cafe-item-price"></span>
+		</div>
+		<div class="cafe-item-buttons">
+			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
+				<span class="ripple-mask"><span class="ripple"></span></span>
+			</button>
+			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
+				<span class="button-item-label">Choose</span>
+				<span class="ripple-mask"><span class="ripple"></span></span>
+			</button>
+		</div>
+	</div>
+
+	<div class="cafe-item js-item" data-item-id="12" data-item-price="7990">
+		<div class="cafe-item-counter js-item-counter">1</div>
+		<div class="cafe-item-photo">
+			<picture class="cafe-item-lottie js-item-lottie">
+				<source type="application/x-tgsticker" srcset="./img/tgs/Flan.tgs">
+				<<img src="./img/rsz_lottery-circle.png"
+				     style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iLTMwMCUiIHgyPSItMjAwJSIgeTE9IjAiIHkyPSIwIj48c3RvcCBvZmZzZXQ9Ii0xMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjMwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjExMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MSIgZnJvbT0iLTMwMCUiIHRvPSIxMjAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MiIgZnJvbT0iLTIwMCUiIHRvPSIxMzAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBmaWxsPSJ1cmwoI2cpIiBkPSJNMjU0LDQzMWMtNjgtMS0xNDQtMTUtMTk1LTYzLTUyLTQ4LTUxLTExNSwyLTE2MywxOC0xNyw2NS0zNCw3NC00Miw4LTgsOS0yMSwxOS0yOSw0MC0zNiwxMjAtMzcsMTY5LTE5LDE2LDYsMzQsMTQsNDQsMjksNCw1LDQsMTMsOSwxOCw4LDksMzIsMTQsNDMsMjAsNDMsMjYsODMsNzEsNzEsMTI1LTIyLDk2LTE1MywxMjQtMjM3LDEyNHoiLz48L3N2Zz4=');"
+				     alt="Flan">
+			</picture>
+		</div>
+		<div class="cafe-item-label">
+			<span class="cafe-item-title">Perm 6</span>
+			<span class="cafe-item-price"></span>
+		</div>
+		<div class="cafe-item-buttons">
+			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
+				<span class="ripple-mask"><span class="ripple"></span></span>
+			</button>
+			<button class="cafe-item-incr-button js-item-incr-btn button-item ripple-handler">
+				<span class="button-item-label">Choose</span>
+				<span class="ripple-mask"><span class="ripple"></span></span>
+			</button>
+		</div>
+	</div>
+
 	<div class="cafe-item-shadow"></div>
 	<div class="cafe-item-shadow"></div>
 	<div class="cafe-item-shadow"></div>
