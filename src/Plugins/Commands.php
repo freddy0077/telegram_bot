@@ -34,7 +34,8 @@ class Commands extends \TelegramBot\Plugin
                 'text' => "*Let's get started* 🍟 \n\nPlease tap the button below to order your perfect lunch!",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
                     [
-                        InlineKeyboardButton::make('Order Food')->setWebApp($_ENV['RESOURCE_PATH']),
+                        // InlineKeyboardButton::make('Order Food')->setWebApp($_ENV['RESOURCE_PATH']),
+                        InlineKeyboardButton::make('Play Lottery')->setWebApp($_ENV['RESOURCE_PATH']),
                     ]
                 ])
             ]);
