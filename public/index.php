@@ -106,7 +106,7 @@
 			</picture>
 		</div>
 		<div class="cafe-item-label">
-			<span class="cafe-item-title">Classic</span>
+			<span class="cafe-item-title">Direct 1</span>
 			<span class="cafe-item-price">GHS1</span>
 		</div>
 		<div class="cafe-item-buttons">
@@ -131,8 +131,8 @@
 		</div>
 
 		<div class="cafe-item-label">
-			<span class="cafe-item-title">Pizza</span>
-			<span class="cafe-item-price">$7.99</span>
+			<span class="cafe-item-title">Direct 2</span>
+			<span class="cafe-item-price">GHS1</span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
@@ -144,19 +144,19 @@
 			</button>
 		</div>
 	</div>
-	<!-- <div class="cafe-item js-item" data-item-id="6" data-item-price="1490">
+	<div class="cafe-item js-item" data-item-id="6" data-item-price="1490">
 		<div class="cafe-item-counter js-item-counter">1</div>
 		<div class="cafe-item-photo">
 			<picture class="cafe-item-lottie js-item-lottie">
 				<source type="application/x-tgsticker" srcset="./img/tgs/Donut.tgs?1">
-				<img src="./img/Donut_148.png?1"
+				<img src="./img/rsz_lottery-circle.png"
 				     style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iLTMwMCUiIHgyPSItMjAwJSIgeTE9IjAiIHkyPSIwIj48c3RvcCBvZmZzZXQ9Ii0xMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjMwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjExMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MSIgZnJvbT0iLTMwMCUiIHRvPSIxMjAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MiIgZnJvbT0iLTIwMCUiIHRvPSIxMzAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBmaWxsPSJ1cmwoI2cpIiBkPSJNMjYxLDQ3OWMtNjYsMi0xMzItMTktMTc4LTY2LTc0LTc1LTgzLTIyNi05LTMwNCw2OS03MSwxODktOTAsMjgwLTU2LDg4LDM0LDEzOCwxMDUsMTMzLDIwMC04LDEzOS04MCwyMjQtMjI2LDIyNnoiLz48L3N2Zz4=');"
 				     alt="Donut">
 			</picture>
 		</div>
 		<div class="cafe-item-label">
-			<span class="cafe-item-title">Donut</span>
-			<span class="cafe-item-price">$1.49</span>
+			<span class="cafe-item-title">Direct 3</span>
+			<span class="cafe-item-price">GHS1</span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
@@ -173,14 +173,14 @@
 		<div class="cafe-item-photo">
 			<picture class="cafe-item-lottie js-item-lottie">
 				<source type="application/x-tgsticker" srcset="./img/tgs/Popcorn.tgs">
-				<img src="./img/Popcorn_148.png"
+				<img src="./img/rsz_lottery-circle.png"
 				     style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iLTMwMCUiIHgyPSItMjAwJSIgeTE9IjAiIHkyPSIwIj48c3RvcCBvZmZzZXQ9Ii0xMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjMwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjExMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MSIgZnJvbT0iLTMwMCUiIHRvPSIxMjAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MiIgZnJvbT0iLTIwMCUiIHRvPSIxMzAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBmaWxsPSJ1cmwoI2cpIiBkPSJNMjg4LDQ5N2MtMTUsMi0xNDYtNC0xNDktMTAtNy0xNi05LTM2LTEzLTUzLTEyLTUxLTIyLTEwMy0zMS0xNTQtNC0xNy0xNC00Ni05LTYyLDMtMTEsMTYtMTUsMTctMjQsMS04LTItMTQsNC0yMCw1LTUsMTctMTQsMjEtMjAsMS00LDAtOCwwLTEyLDAtMywzNy00MywzOS00Myw3LTMsMTMsMiwxOSwyLDQsMCw0LTgsOC05LDMtMiw4LTEsMTEtMywxNC01LDMwLTMwLDQ0LTI3LDcsMSwxMywyMCwxNSwxOSwxMS0yLDE3LTksMjktMywzLDEsNSw1LDgsNiwyMiwyLDExLTYsMjksMTUsNiw3LDE3LDMsMjMsMTAsNyw2LDEsMTQsNCwxOSwxLDEsMTEsNCwxNCw2LDksMTAsMTQsMzAsMTcsNDIsMSwxLDcsMiw4LDIsNiw0LDYsMTAsOSwxNCwyLDIsNywxLDEwLDYsOSwxOS0yMCwxMjMtMjYsMTQ5LTMsMTgtMTYsMTEwLTI2LDExOS0xMCw5LTMwLDI3LTQzLDMxLTksMi0yMiwwLTMyLDB6Ii8+PC9zdmc+');"
 				     alt="Popcorn">
 			</picture>
 		</div>
 		<div class="cafe-item-label">
-			<span class="cafe-item-title">Popcorn</span>
-			<span class="cafe-item-price">$1.99</span>
+			<span class="cafe-item-title">Direct 4</span>
+			<span class="cafe-item-price">GHS1</span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
@@ -197,14 +197,14 @@
 		<div class="cafe-item-photo">
 			<picture class="cafe-item-lottie js-item-lottie">
 				<source type="application/x-tgsticker" srcset="./img/tgs/Coke.tgs">
-				<img src="./img/Coke_148.png"
+				<img src="./img/rsz_lottery-circle.png"
 				     style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iLTMwMCUiIHgyPSItMjAwJSIgeTE9IjAiIHkyPSIwIj48c3RvcCBvZmZzZXQ9Ii0xMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjMwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjExMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MSIgZnJvbT0iLTMwMCUiIHRvPSIxMjAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MiIgZnJvbT0iLTIwMCUiIHRvPSIxMzAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBmaWxsPSJ1cmwoI2cpIiBkPSJNMjQ4LDUwNWMtODYsMC03OC00Ny04NS0xMTMtMi0yMC05LTE1Ny0xNS0xNjMtMTEtMTItMTItNy0xMC0yNiwwLTQsMS05LDMtMTIsMTYtMTYsOTMtMTgsOTUtMjEsNi05LTMtMjksMi00MCw4LTE2LDEwMi00MCwxMTAtMjcsMjAsMjktNzMsMjktODUsNDAtMiwyLTMsMjUtMSwyNywxNSwxMSw4OC02LDk2LDIyLDEwLDMxLTcsMjEtOSwzNy0yLDIxLTMsNDItNSw2NC0zLDI5LTgsMTczLTIyLDE4OC0xOSwxOS00OSwyNC03NCwyNHoiLz48L3N2Zz4=');"
 				     alt="Coke">
 			</picture>
 		</div>
 		<div class="cafe-item-label">
-			<span class="cafe-item-title">Coke</span>
-			<span class="cafe-item-price">$1.49</span>
+			<span class="cafe-item-title">Direct 5</span>
+			<span class="cafe-item-price">GHS1</span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
@@ -221,14 +221,14 @@
 		<div class="cafe-item-photo">
 			<picture class="cafe-item-lottie js-item-lottie">
 				<source type="application/x-tgsticker" srcset="./img/tgs/Cake.tgs">
-				<img src="./img/Cake_148.png"
+				<img src="./img/rsz_lottery-circle.png"
 				     style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iLTMwMCUiIHgyPSItMjAwJSIgeTE9IjAiIHkyPSIwIj48c3RvcCBvZmZzZXQ9Ii0xMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjMwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1vcGFjaXR5PSIuMDciLz48c3RvcCBvZmZzZXQ9IjExMCUiIHN0b3Atb3BhY2l0eT0iLjEiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MSIgZnJvbT0iLTMwMCUiIHRvPSIxMjAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJ4MiIgZnJvbT0iLTIwMCUiIHRvPSIxMzAwJSIgZHVyPSIzcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBmaWxsPSJ1cmwoI2cpIiBkPSJNOTIsNDcyYy0zLDAtMTAsMS0xMy0yLTEwLTEyLTctOTQtOS0xMTQtMi0yMC0xOC0xMzgtOC0xNDgsMjktMjksNzgtNDYsMTE1LTY0LDIyLTExLDE2LTMwLDI5LTUwLDE2LTI0LDI4LTEyLDQ1LTIwLDEsMCwxLTEwLDQtMTIsNS00LDE3LDEzLDIxLDE1LDIsMSwyLTQsMy02LDEtMSw5LTksMTItNiw3LDgsMywxOCw3LDI1LDMsNSwyNyw3LDIxLDIwLTIsMywyNSwxMiwzMiwxNSwyNSwxMSw1MSwyMyw3NSwzNiwxNiw5LDM1LDE3LDQ3LDMyLDMxLDQwLDE1LDEyMSw5LDE2OC0yLDExLTIsNDctMTQsNTMtMzYsMTctMTI1LDIzLTE2NywzMC02OCwxMC0xNDAsMjgtMjA5LDI4eiIvPjwvc3ZnPg==');"
 				     alt="Cake">
 			</picture>
 		</div>
 		<div class="cafe-item-label">
-			<span class="cafe-item-title">Cake</span>
-			<span class="cafe-item-price">$10.99</span>
+			<span class="cafe-item-title">Direct 6</span>
+			<span class="cafe-item-price">GHS1</span>
 		</div>
 		<div class="cafe-item-buttons">
 			<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">
@@ -311,7 +311,7 @@
 				<span class="ripple-mask"><span class="ripple"></span></span>
 			</button>
 		</div>
-	</div> -->
+	</div>
 	<div class="cafe-item-shadow"></div>
 	<div class="cafe-item-shadow"></div>
 	<div class="cafe-item-shadow"></div>
