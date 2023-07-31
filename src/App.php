@@ -42,7 +42,7 @@ class App extends \TelegramBot\UpdateHandler {
             $chatId = $callbackQuery->getMessage()->getChat()->getId();
             $callbackData = $callbackQuery->getData();
 
-             $megaJackpotButton = InlineKeyboardButton::make('Mega jackpot')->setWebApp("https://telegram.afriluck.com/mega-jackpot/")
+             $megaJackpotButton = InlineKeyboardButton::make('Mega jackpot')->setWebApp("https://telegram.afriluck.com/mega-jackpot/");
 
              if ($callbackQuery->getData() == 'show_cash_games') {
                  Request::editMessageText([
