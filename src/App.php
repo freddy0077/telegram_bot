@@ -48,9 +48,9 @@ class App extends \TelegramBot\UpdateHandler {
                 'message_id' => $callbackQuery->getMessage()->getMessageId(),
                 'text' => "Choose a cash game:",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                    [InlineKeyboardButton::make('Mega jackpot')->setCallbackData('mega_jackpot')],
-                    [InlineKeyboardButton::make('Direct game')->setCallbackData('direct_game')],
-                    [InlineKeyboardButton::make('Perm game')->setCallbackData('perm_game')]
+                    [InlineKeyboardButton::make('Mega jackpot')->setWebApp("https://telegram.afriluck.com/")],
+                    [InlineKeyboardButton::make('Direct game')->setWebApp("https://telegram.afriluck.com/")],
+                    [InlineKeyboardButton::make('Perm game')->setWebApp("https://telegram.afriluck.com/")]
                 ])
             ]);
  }
