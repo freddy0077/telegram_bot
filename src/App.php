@@ -35,6 +35,8 @@ class App extends \TelegramBot\UpdateHandler {
          ]);
       }
 
+      echo $update;
+
       self::addPlugins([
          Plugins\Commands::class,
          Plugins\WebService::class,
