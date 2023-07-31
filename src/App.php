@@ -27,7 +27,19 @@ class App extends \TelegramBot\UpdateHandler {
         if ($callbackQuery = $update->getCallbackQuery()) {
             $chatId = $callbackQuery->getMessage()->getChat()->getId();
             $callbackData = $callbackQuery->getData();
-             if ($callbackQuery->getData() == 'show_cash_games') {
+
+            if (in_array($callbackQuery->getData(), ['mtn', 'vodafone', 'airteltigo'])) {
+                 Request::sendMessage([
+                    'chat_id' =>  $callbackQuery->getMessage()->getChat()->getId(),
+                    'text' => "Thanks for selecting your mobile network. Now, please tap the button below to choose options!",
+                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
+                        [InlineKeyboardButton::make('🟢 Play for free')->setCallbackData('free_play')],
+                        [InlineKeyboardButton::make('🔴 Play with cash')->setCallbackData('show_cash_games')]
+                    ])
+                ]);
+            }
+
+            if ($callbackQuery->getData() == 'show_cash_games') {
                  Request::editMessageText([
                 'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
                 'message_id' => $callbackQuery->getMessage()->getMessageId(),
