@@ -44,21 +44,44 @@ class Commands extends \TelegramBot\Plugin
 
         if ($message->getText() == '/start' || $message->getText() == '/order') {
             // Sending the image
-            yield Request::sendPhoto([
-                'chat_id' => $message->getChat()->getId(),
-                'photo' => 'http://afriluckstaging3.afriluck.com/assets/carousels/cr-desk-6b.jpg',
-                'caption' => "*Let's get started*",  
-                'parse_mode' => ParseMode::MARKDOWN,
-            ]);
+            // yield Request::sendPhoto([
+            //     'chat_id' => $message->getChat()->getId(),
+            //     'photo' => 'http://afriluckstaging3.afriluck.com/assets/carousels/cr-desk-6b.jpg',
+            //     'caption' => "*Let's get started*",  
+            //     'parse_mode' => ParseMode::MARKDOWN,
+            // ]);
             
             // Sending the message with the button
+//            yield Request::sendMessage([
+//                'chat_id' => $message->getChat()->getId(),
+//                'parse_mode' => ParseMode::MARKDOWN,
+//                'text' => "Please tap the button below to choose options!",
+//                'reply_markup' => InlineKeyboard::make()->setKeyboard([
+//                    [
+//                        InlineKeyboardButton::make('Play Lottery')->setWebApp("https://telegram.afriluck.com/"),
+//                    ]
+//                ])
+//            ]);
+
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
                 'parse_mode' => ParseMode::MARKDOWN,
                 'text' => "Please tap the button below to choose options!",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
                     [
-                        InlineKeyboardButton::make('Play Lottery')->setWebApp("https://telegram.afriluck.com/"),
+                        InlineKeyboardButton::make('Play for free'),
+                        InlineKeyboardButton::make('Play for free'),
+                    ]
+                ])
+            ]);
+
+            yield Request::sendMessage([
+                'chat_id' => $message->getChat()->getId(),
+                'parse_mode' => ParseMode::MARKDOWN,
+//                'text' => "Please tap the button below to choose options!",
+                'reply_markup' => InlineKeyboard::make()->setKeyboard([
+                    [
+                        InlineKeyboardButton::make('Play with real money'),
                     ]
                 ])
             ]);
