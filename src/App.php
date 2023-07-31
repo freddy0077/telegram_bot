@@ -26,7 +26,6 @@ class App extends \TelegramBot\UpdateHandler {
             ]);
         }
 
-            // Check if the update contains a message
         if ($message = $update->getMessage()) {
             if ($message->getText() === '/ping') {
                 Request::sendMessage([
@@ -37,13 +36,9 @@ class App extends \TelegramBot\UpdateHandler {
             }
         }
 
-        // Check if the update contains a callback query
         if ($callbackQuery = $update->getCallbackQuery()) {
             $chatId = $callbackQuery->getMessage()->getChat()->getId();
             $callbackData = $callbackQuery->getData();
-
-             $megaJackpotButton = InlineKeyboardButton::make('Mega jackpot')->setWebApp("https://telegram.afriluck.com/mega-jackpot/");
-
              if ($callbackQuery->getData() == 'show_cash_games') {
                  Request::editMessageText([
                 'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
@@ -51,15 +46,15 @@ class App extends \TelegramBot\UpdateHandler {
                 'text' => "Choose a cash game:",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
                     [ InlineKeyboardButton::make('Mega jackpot')->setWebApp("https://telegram.afriluck.com?type=megajackpot")],
-                    [InlineKeyboardButton::make('Direct game')->setWebApp("https://telegram.afriluck.com/")],
-                    [InlineKeyboardButton::make('Perm game')->setWebApp("https://telegram.afriluck.com/")]
+                    [InlineKeyboardButton::make('Direct game')->setWebApp("https://telegram.afriluck.com?type=direct")],
+                    [InlineKeyboardButton::make('Perm game')->setWebApp("https://telegram.afriluck.com?type=perm")]
                 ])
             ]);
  }
             if ($callbackData == 'show_cash_games') {
                 Request::sendMessage([
                     'chat_id' => $chatId,
-                    'text' => [$megaJackpotButton->getWebApp()->getUrl()],
+                    'text' => "Show cash games",
                 ]);
             }
         }
