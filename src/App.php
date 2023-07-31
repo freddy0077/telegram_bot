@@ -59,7 +59,7 @@ class App extends \TelegramBot\UpdateHandler {
             if ($callbackData == 'show_cash_games') {
                 Request::sendMessage([
                     'chat_id' => $chatId,
-                    'text' => $megaJackpotButton->getWebApp()->getUrl(),
+                    'text' => [$megaJackpotButton->getWebApp()->getUrl()],
                 ]);
             }
         }
