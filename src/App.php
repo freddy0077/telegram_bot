@@ -12,19 +12,7 @@ class App extends \TelegramBot\UpdateHandler {
 
     public function __process(Update $update): void
     {
-
         Telegram::setAdminId(5309455764);
-        $callback_query = $update->getCallbackQuery();
-
-        if ($callback_query) {
-            $callback_data = $callback_query->getData();
-            $message = $update->getMessage();
-            Request::sendMessage([
-                'chat_id' => $message->getChat()->getId(),
-                'parse_mode' => 'Markdown',
-                'text' => $callback_data,
-            ]);
-        }
 
         if ($message = $update->getMessage()) {
             if ($message->getText() === '/ping') {
