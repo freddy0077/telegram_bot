@@ -14,10 +14,10 @@ class Commands extends \TelegramBot\Plugin
 {
     public function onMessage(int $update_id, Message $message): \Generator
     {
-
         $contact = $message->getContact();
+        $text = $message->getText();
 
-        if ($message->getText() == '/start') {
+        if ($text == '/start') {
             // Request phone number
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
@@ -30,6 +30,7 @@ class Commands extends \TelegramBot\Plugin
                     ])
             ]);
         } elseif ($contact && $contact->getPhoneNumber()) {
+            // Process received phone number
             $phoneNumber = $contact->getPhoneNumber();
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
@@ -40,9 +41,37 @@ class Commands extends \TelegramBot\Plugin
                     [InlineKeyboardButton::make('🔴 Play with cash')->setCallbackData('show_cash_games')]
                 ])
             ]);
+        } elseif ($text && strpos($text, ',') !== false) {
+            // Possible numbers sent by the user, let's validate
+            $numbers = explode(',', $text);
+            $numbers = array_map('trim', $numbers); // Trim spaces
+            $valid = true;
+
+            if (count($numbers) != 6) {
+                $valid = false;
+            } else {
+                foreach ($numbers as $number) {
+                    if (!is_numeric($number) || $number < 1 || $number > 57 || count(array_unique($numbers)) != 6) {
+                        $valid = false;
+                        break;
+                    }
+                }
+            }
+
+            if ($valid) {
+                yield Request::sendMessage([
+                    'chat_id' => $message->getChat()->getId(),
+                    'text' => "Thanks for sending your numbers. Good luck!"
+                ]);
+            } else {
+                yield Request::sendMessage([
+                    'chat_id' => $message->getChat()->getId(),
+                    'text' => "Please send 6 unique numbers from 1 to 57 separated by commas."
+                ]);
+            }
         }
 
-        if ($message->getText() == '/help') {
+        if ($text == '/help') {
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
                 'text' => "This is the help page. You can use the following commands:\n\n" .
@@ -53,4 +82,6 @@ class Commands extends \TelegramBot\Plugin
             ]);
         }
     }
+
+
 }
