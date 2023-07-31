@@ -32,10 +32,10 @@ class App extends \TelegramBot\UpdateHandler {
             echo $callbackData;
 
             // Handle specific callback queries (you might need to expand on this)
-            if ($callbackData == 'some_callback_data') {
+            if ($callbackData == 'callback:mega_jackpot') {
                 Request::sendMessage([
                     'chat_id' => $chatId,
-                    'text' => 'You clicked on the button with "some_callback_data"',
+                    'text' => 'You clicked on the button with "callback:mega_jackpot"',
                 ]);
             }
             // Add more if conditions or switch-case for other callback data
