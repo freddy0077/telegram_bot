@@ -28,6 +28,11 @@ class App extends \TelegramBot\UpdateHandler {
             $chatId = $callbackQuery->getMessage()->getChat()->getId();
             $callbackData = $callbackQuery->getData();
 
+            Request::sendMessage([
+                'chat_id' => $message->getChat()->getId(),
+                'parse_mode' => 'Markdown',
+                'text' => '`Update query`',
+            ]);
             // For demonstration purposes, echo the callback data
             echo $callbackData;
 
@@ -47,3 +52,18 @@ class App extends \TelegramBot\UpdateHandler {
         ]);
     }
 }
+
+
+// Handling the callback when 'Play with cash' is pressed
+// if ($callbackQuery && $callbackQuery->getData() == 'show_cash_games') {
+//            yield Request::editMessageText([
+//                'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
+//                'message_id' => $callbackQuery->getMessage()->getMessageId(),
+//                'text' => "Choose a cash game:",
+//                'reply_markup' => InlineKeyboard::make()->setKeyboard([
+//                    [InlineKeyboardButton::make('Mega jackpot')->setCallbackData('mega_jackpot')],
+//                    [InlineKeyboardButton::make('Direct game')->setCallbackData('direct_game')],
+//                    [InlineKeyboardButton::make('Perm game')->setCallbackData('perm_game')]
+//                ])
+//            ]);
+// }

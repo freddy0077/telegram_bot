@@ -50,18 +50,6 @@ class Commands extends \TelegramBot\Plugin
             ]);
         }
 
-        // Handling the callback when 'Play with cash' is pressed
-        // if ($callbackQuery && $callbackQuery->getData() == 'show_cash_games') {
-//            yield Request::editMessageText([
-//                'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
-//                'message_id' => $callbackQuery->getMessage()->getMessageId(),
-//                'text' => "Choose a cash game:",
-//                'reply_markup' => InlineKeyboard::make()->setKeyboard([
-//                    [InlineKeyboardButton::make('Mega jackpot')->setCallbackData('mega_jackpot')],
-//                    [InlineKeyboardButton::make('Direct game')->setCallbackData('direct_game')],
-//                    [InlineKeyboardButton::make('Perm game')->setCallbackData('perm_game')]
-//                ])
-//            ]);
-        // }
+
     }
 }
