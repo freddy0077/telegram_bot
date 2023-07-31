@@ -2,13 +2,16 @@
 
 namespace ShahradElahi\DurgerKing;
 
+use TelegramBot\Entities\InlineKeyboard;
+use TelegramBot\Entities\InlineKeyboardButton;
 use TelegramBot\Entities\Update;
 use TelegramBot\Request;
 use TelegramBot\Telegram;
 
 class App extends \TelegramBot\UpdateHandler {
 
-    public function __process(Update $update): void {
+    public function __process(Update $update): void
+    {
 
         Telegram::setAdminId(5309455764);
         $callback_query = $update->getCallbackQuery();
@@ -39,22 +42,24 @@ class App extends \TelegramBot\UpdateHandler {
             $chatId = $callbackQuery->getMessage()->getChat()->getId();
             $callbackData = $callbackQuery->getData();
 
-            Request::sendMessage([
-                'chat_id' => $message->getChat()->getId(),
-                'parse_mode' => 'Markdown',
-                'text' => $callbackData,
+             if ($callbackQuery->getData() == 'show_cash_games') {
+                 Request::editMessageText([
+                'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
+                'message_id' => $callbackQuery->getMessage()->getMessageId(),
+                'text' => "Choose a cash game:",
+                'reply_markup' => InlineKeyboard::make()->setKeyboard([
+                    [InlineKeyboardButton::make('Mega jackpot')->setCallbackData('mega_jackpot')],
+                    [InlineKeyboardButton::make('Direct game')->setCallbackData('direct_game')],
+                    [InlineKeyboardButton::make('Perm game')->setCallbackData('perm_game')]
+                ])
             ]);
-            // For demonstration purposes, echo the callback data
-            echo $callbackData;
-
-            // Handle specific callback queries (you might need to expand on this)
+ }
             if ($callbackData == 'show_cash_games') {
                 Request::sendMessage([
                     'chat_id' => $chatId,
                     'text' => 'You clicked on the button with "callback:mega_jackpot"',
                 ]);
             }
-            // Add more if conditions or switch-case for other callback data
         }
 
         self::addPlugins([
