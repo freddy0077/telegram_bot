@@ -16,8 +16,9 @@ class Commands extends \TelegramBot\Plugin
     {
         $contact = $message->getContact();
         $text = $message->getText();
+        $callback_data = $message->getCallbackQuery() ? $message->getCallbackQuery()->getData() : null;
 
-        if ($text == '/start') {
+        if ($text == '/start' || $callback_data == 'back_start') {
             // Request phone number
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
@@ -29,7 +30,7 @@ class Commands extends \TelegramBot\Plugin
                         [KeyboardButton::make('Share Phone Number')->setRequestContact(true)]
                     ])
             ]);
-        } elseif ($contact && $contact->getPhoneNumber()) {
+        } elseif ($contact && $contact->getPhoneNumber() || $callback_data == 'back_network') {
             // Asking for mobile network after phone number has been shared
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
@@ -37,7 +38,8 @@ class Commands extends \TelegramBot\Plugin
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
                     [InlineKeyboardButton::make('MTN')->setCallbackData('mtn')],
                     [InlineKeyboardButton::make('Vodafone')->setCallbackData('vodafone')],
-                    [InlineKeyboardButton::make('AirtelTigo')->setCallbackData('airteltigo')]
+                    [InlineKeyboardButton::make('AirtelTigo')->setCallbackData('airteltigo')],
+                    [InlineKeyboardButton::make('Back')->setCallbackData('back_start')] // Back button
                 ])
             ]);
         } elseif ($text && strpos($text, ',') !== false) {
@@ -65,11 +67,13 @@ class Commands extends \TelegramBot\Plugin
             } else {
                 yield Request::sendMessage([
                     'chat_id' => $message->getChat()->getId(),
-                    'text' => "Please type 6 unique numbers from 1 to 57 separated by commas."
+                    'text' => "Please type 6 unique numbers from 1 to 57 separated by commas.",
+                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
+                        [InlineKeyboardButton::make('Back')->setCallbackData('back_network')] // Back button
+                    ])
                 ]);
             }
-        }
-        if ($text == '/help') {
+        } elseif ($text == '/help') {
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
                 'text' => "This is the help page. You can use the following commands:\n\n" .
@@ -80,6 +84,4 @@ class Commands extends \TelegramBot\Plugin
             ]);
         }
     }
-
-
 }
