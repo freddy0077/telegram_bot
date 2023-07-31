@@ -42,13 +42,15 @@ class App extends \TelegramBot\UpdateHandler {
             $chatId = $callbackQuery->getMessage()->getChat()->getId();
             $callbackData = $callbackQuery->getData();
 
+             $megaJackpotButton = InlineKeyboardButton::make('Mega jackpot')->setWebApp("https://telegram.afriluck.com/mega-jackpot/")
+
              if ($callbackQuery->getData() == 'show_cash_games') {
                  Request::editMessageText([
                 'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
                 'message_id' => $callbackQuery->getMessage()->getMessageId(),
                 'text' => "Choose a cash game:",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                    [InlineKeyboardButton::make('Mega jackpot')->setWebApp("https://telegram.afriluck.com/mega-jackpot/")],
+                    [$megaJackpotButton],
                     [InlineKeyboardButton::make('Direct game')->setWebApp("https://telegram.afriluck.com/")],
                     [InlineKeyboardButton::make('Perm game')->setWebApp("https://telegram.afriluck.com/")]
                 ])
@@ -57,7 +59,7 @@ class App extends \TelegramBot\UpdateHandler {
             if ($callbackData == 'show_cash_games') {
                 Request::sendMessage([
                     'chat_id' => $chatId,
-                    'text' => 'You clicked on the button with "callback:mega_jackpot"',
+                    'text' => $megaJackpotButton->getWebApp()->getUrl(),
                 ]);
             }
         }
