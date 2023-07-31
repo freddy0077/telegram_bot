@@ -6,43 +6,44 @@ use TelegramBot\Entities\Update;
 use TelegramBot\Request;
 use TelegramBot\Telegram;
 
-/**
- * Class App
- *
- * This class is the main class of the application.
- * It is responsible for handling the incoming updates and
- * sending the responses.
- *
- * @link https://core.telegram.org/bots/api#getting-updates
- */
 class App extends \TelegramBot\UpdateHandler {
 
-   /**
-    * This method is called when the bot receives a new message.
-    *
-    * @param Update $update
-    * @return void
-    */
-   public function __process(Update $update): void {
+    public function __process(Update $update): void {
 
-      Telegram::setAdminId(5309455764);
+        Telegram::setAdminId(5309455764);
 
-      if ($update->getMessage()->getText() === '/ping') {
-         Request::sendMessage([
-            'chat_id' => $update->getMessage()->getChat()->getId(),
-            'parse_mode' => 'Markdown',
-            'text' => '`Pong!`',
-         ]);
-      }
+        // Check if the update contains a message
+        if ($message = $update->getMessage()) {
+            if ($message->getText() === '/ping') {
+                Request::sendMessage([
+                    'chat_id' => $message->getChat()->getId(),
+                    'parse_mode' => 'Markdown',
+                    'text' => '`Pong!`',
+                ]);
+            }
+        }
 
-      if ($update->getCallbackQuery()->getMessage()->getText()){
-          echo $update->getCallbackQuery()->getMessage()->getText();
-      }
+        // Check if the update contains a callback query
+        if ($callbackQuery = $update->getCallbackQuery()) {
+            $chatId = $callbackQuery->getMessage()->getChat()->getId();
+            $callbackData = $callbackQuery->getData();
 
-      self::addPlugins([
-         Plugins\Commands::class,
-         Plugins\WebService::class,
-      ]);
-   }
+            // For demonstration purposes, echo the callback data
+            echo $callbackData;
 
+            // Handle specific callback queries (you might need to expand on this)
+            if ($callbackData == 'some_callback_data') {
+                Request::sendMessage([
+                    'chat_id' => $chatId,
+                    'text' => 'You clicked on the button with "some_callback_data"',
+                ]);
+            }
+            // Add more if conditions or switch-case for other callback data
+        }
+
+        self::addPlugins([
+            Plugins\Commands::class,
+            Plugins\WebService::class,
+        ]);
+    }
 }
