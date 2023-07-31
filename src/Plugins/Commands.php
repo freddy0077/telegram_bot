@@ -21,7 +21,7 @@ class Commands extends \TelegramBot\Plugin
                 'parse_mode' => ParseMode::MARKDOWN,
                 'text' => "Please tap the button below to choose options!",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                    [InlineKeyboardButton::make('🔵 Play Lottery')->setWebApp("https://telegram.afriluck.com/")],
+//                    [InlineKeyboardButton::make('🔵 Play Lottery')->setWebApp("https://telegram.afriluck.com/")],
                     [InlineKeyboardButton::make('🟢 Play for free')->setCallbackData('free_play')],
                     [InlineKeyboardButton::make('🔴 Play with cash')->setCallbackData('show_cash_games')]
                 ])
