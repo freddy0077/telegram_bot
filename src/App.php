@@ -42,13 +42,13 @@ class App extends \TelegramBot\UpdateHandler {
             Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
                 'parse_mode' => 'Markdown',
-                'text' => '`Update query`',
+                'text' => $callbackData,
             ]);
             // For demonstration purposes, echo the callback data
             echo $callbackData;
 
             // Handle specific callback queries (you might need to expand on this)
-            if ($callbackData == 'callback:mega_jackpot') {
+            if ($callbackData == 'show_cash_games') {
                 Request::sendMessage([
                     'chat_id' => $chatId,
                     'text' => 'You clicked on the button with "callback:mega_jackpot"',
