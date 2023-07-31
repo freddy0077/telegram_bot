@@ -17,7 +17,7 @@ use TelegramBot\Request;
  * @link       https://github.com/telegram-bot-php/durger-king
  * @version    v1.0.0
  */
-class Commands extends \TelegramBot\Plugin
+class CommandsDeprecated extends \TelegramBot\Plugin
 {
 
     /**
@@ -27,9 +27,31 @@ class Commands extends \TelegramBot\Plugin
      */
     public function onMessage(int $update_id, Message $message): \Generator
     {
-        if ($message->getText() == '/start' || $message->getText() == '/order') {
+        // if ($message->getText() == '/start' || $message->getText() == '/order') {
+        //     yield Request::sendMessage([
+        //         'chat_id' => $message->getChat()->getId(),
+        //         'parse_mode' => ParseMode::MARKDOWN,
+        //         // 'text' => "*Let's get started* 🍟 \n\nPlease tap the button below to choose options!",
+        //         'text' => "*Let's get started* \n\nPlease tap the button below to choose options!",
+        //         'reply_markup' => InlineKeyboard::make()->setKeyboard([
+        //             [
+        //                 // InlineKeyboardButton::make('Order Food')->setWebApp($_ENV['RESOURCE_PATH']),
+        //                 InlineKeyboardButton::make('Play Lottery')->setWebApp("https://telegram.afriluck.com/"),
+        //             ]
+        //         ])
+        //     ]);
+        // }
 
-            // Sending the message with the buttons
+        if ($message->getText() == '/start' || $message->getText() == '/order') {
+            // Sending the image
+            // yield Request::sendPhoto([
+            //     'chat_id' => $message->getChat()->getId(),
+            //     'photo' => 'http://afriluckstaging3.afriluck.com/assets/carousels/cr-desk-6b.jpg',
+            //     'caption' => "*Let's get started*",  
+            //     'parse_mode' => ParseMode::MARKDOWN,
+            // ]);
+            
+            // Sending the message with the button
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
                 'parse_mode' => ParseMode::MARKDOWN,
@@ -37,14 +59,22 @@ class Commands extends \TelegramBot\Plugin
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
                     [
                         InlineKeyboardButton::make('Play Lottery')->setWebApp("https://telegram.afriluck.com/"),
-                        InlineKeyboardButton::make('Play for free')->setCallbackData('free_play'),
-                        InlineKeyboardButton::make('Play with cash')->setCallbackData('cash_play'),
                     ]
                 ])
             ]);
+
+//            yield Request::sendMessage([
+//                'chat_id' => $message->getChat()->getId(),
+//                'parse_mode' => ParseMode::MARKDOWN,
+//                'text' => "Please tap the button below to choose options!",
+//                'reply_markup' => InlineKeyboard::make()->setKeyboard([
+//                    [
+//                        InlineKeyboardButton::make('Play Lottery')->setWebApp("https://telegram.afriluck.com/"),
+//                    ]
+//                ])
+//            ]);
         }
-
-
+        
 
         if ($message->getText() == '/test') {
             yield Request::sendMessage([
