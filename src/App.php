@@ -19,7 +19,7 @@ class App extends \TelegramBot\UpdateHandler {
             Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
                 'parse_mode' => 'Markdown',
-                'text' => '`Pong!`',
+                'text' => $callback_data,
             ]);
         }
 
