@@ -37,14 +37,45 @@ $type = $_GET['type'];
             align-items: center;
         }
 
+        .cafe-item.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .number-pad {
+            display: none; /* start with the number pad hidden */
+            flex-wrap: wrap;
+            width: 220px; /* control the width of the number pad */
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            position: absolute; /* to allow positioning */
+            z-index: 999; /* to ensure it's above other content */
+        }
+
         .number-button {
             width: 40px;
             height: 40px;
-            margin: 5px;
+            margin: 2px;
             border: 1px solid #ccc;
+            background-color: #fff;
             text-align: center;
+            line-height: 40px; /* vertically aligns the text */
             cursor: pointer;
+            border-radius: 4px; /* rounded corners */
+            transition: background-color 0.3s; /* smooth color transition */
         }
+
+        .number-button:hover {
+            background-color: #e9e9e9; /* color on hover */
+        }
+
+        .number-button.selected {
+            background-color: #007bff; /* color when selected */
+            color: white; /* text color when selected */
+        }
+
     </style>
 </head>
 <body>
@@ -62,13 +93,12 @@ if ($type === "megajackpot") {
 ?>
 
 <!-- Number pad addition -->
-<div class="number-pad" style="display:none;">
+<div class="number-pad">
     <div class="numbers">
         <?php for ($i = 1; $i <= 57; $i++): ?>
             <button class="number-button" data-number="<?php echo $i; ?>"><?php echo $i; ?></button>
         <?php endfor; ?>
     </div>
-    <button class="deselect">Deselect Item</button>
 </div>
 
 <?php echo include_once 'includes/cafe-order-overview.php' ?>
@@ -87,27 +117,36 @@ if ($type === "megajackpot") {
     });
 
     // Added JavaScript Modifications
-    $(document).ready(function () {
-        $('.js-item').on('click', function () {
-            $('.js-item').addClass('disabled');
-            $(this).removeClass('disabled');
-            $('.number-pad').show();
-        });
+        $(document).ready(function () {
+            $('.js-item').on('click', function (event) {
+                event.stopPropagation(); // Prevent the click from bubbling up
 
-        $('.number-button').on('click', function () {
-            if ($(this).hasClass('selected')) {
-                $(this).removeClass('selected');
-            } else if ($('.number-button.selected').length < 6) {
-                $(this).addClass('selected');
-            }
-        });
+                $('.js-item').addClass('disabled');
+                $(this).removeClass('disabled');
 
-        $('.deselect').on('click', function () {
-            $('.js-item').removeClass('disabled');
-            $('.number-pad').hide();
-            $('.number-button').removeClass('selected');
-        });
-    });
+                $('.number-pad').css({ // Position the number pad relative to clicked item
+                    top: $(this).offset().top + $(this).height() + 5 + "px",
+                    left: $(this).offset().left + "px"
+                }).show();
+            });
+
+            $('.number-button').on('click', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                } else if ($('.number-button.selected').length < 6) {
+                    $(this).addClass('selected');
+                }
+            });
+
+            $(document).on('click', function (event) {
+                if (!$(event.target).closest('.number-pad, .js-item').length) {
+                    $('.number-pad').hide();
+                    $('.js-item').removeClass('disabled');
+                    $('.number-button').removeClass('selected');
+                }
+            });
+        })
+
 </script>
 </body>
 </html>
