@@ -43,7 +43,7 @@ class App extends \TelegramBot\UpdateHandler {
             if ($callbackQuery->getData() == 'free_play') {
                  Request::sendMessage([
                     'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
-                    'text' => "Please send 6 unique numbers from 1 to 57 separated by commas."
+                    'text' => "Please type 6 unique numbers from 1 to 57 separated by commas."
                 ]);
             }
         }
@@ -51,7 +51,7 @@ class App extends \TelegramBot\UpdateHandler {
 //        $data = $callback_query->getData();
 //        $chat_id = $callback_query->getMessage()->getChat()->getId();
 //
-        
+
         self::addPlugins([
             Plugins\Commands::class,
             Plugins\WebService::class,

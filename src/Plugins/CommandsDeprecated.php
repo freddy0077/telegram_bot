@@ -4,103 +4,74 @@ namespace ShahradElahi\DurgerKing\Plugins;
 
 use TelegramBot\Entities\InlineKeyboard;
 use TelegramBot\Entities\InlineKeyboardButton;
+use TelegramBot\Entities\KeyboardButton;
 use TelegramBot\Entities\Message;
+use TelegramBot\Entities\Keyboard;
 use TelegramBot\Enums\ParseMode;
 use TelegramBot\Request;
 
-/**
- * Class Commands
- *
- * The Class will handle the requests for the WebApp.
- *
- * @author     Shahrad Elahi <shahrad@litehex.com>
- * @link       https://github.com/telegram-bot-php/durger-king
- * @version    v1.0.0
- */
-class CommandsDeprecated extends \TelegramBot\Plugin
+class Commands extends \TelegramBot\Plugin
 {
-
-    /**
-     * @param int $update_id
-     * @param Message $message
-     * @return \Generator
-     */
     public function onMessage(int $update_id, Message $message): \Generator
     {
-        // if ($message->getText() == '/start' || $message->getText() == '/order') {
-        //     yield Request::sendMessage([
-        //         'chat_id' => $message->getChat()->getId(),
-        //         'parse_mode' => ParseMode::MARKDOWN,
-        //         // 'text' => "*Let's get started* 🍟 \n\nPlease tap the button below to choose options!",
-        //         'text' => "*Let's get started* \n\nPlease tap the button below to choose options!",
-        //         'reply_markup' => InlineKeyboard::make()->setKeyboard([
-        //             [
-        //                 // InlineKeyboardButton::make('Order Food')->setWebApp($_ENV['RESOURCE_PATH']),
-        //                 InlineKeyboardButton::make('Play Lottery')->setWebApp("https://telegram.afriluck.com/"),
-        //             ]
-        //         ])
-        //     ]);
-        // }
+        $contact = $message->getContact();
+        $text = $message->getText();
 
-        if ($message->getText() == '/start' || $message->getText() == '/order') {
-            // Sending the image
-            // yield Request::sendPhoto([
-            //     'chat_id' => $message->getChat()->getId(),
-            //     'photo' => 'http://afriluckstaging3.afriluck.com/assets/carousels/cr-desk-6b.jpg',
-            //     'caption' => "*Let's get started*",  
-            //     'parse_mode' => ParseMode::MARKDOWN,
-            // ]);
-            
-            // Sending the message with the button
+        if ($text == '/start') {
+            // Request phone number
+            yield Request::sendMessage([
+                'chat_id' => $message->getChat()->getId(),
+                'text' => "Please share your phone number to get started!",
+                'reply_markup' => Keyboard::make()
+                    ->setResizeKeyboard(true)
+                    ->setOneTimeKeyboard(true)
+                    ->setKeyboard([
+                        [KeyboardButton::make('Share Phone Number')->setRequestContact(true)]
+                    ])
+            ]);
+        } elseif ($contact && $contact->getPhoneNumber()) {
+            // Process received phone number
+            $phoneNumber = $contact->getPhoneNumber();
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
                 'parse_mode' => ParseMode::MARKDOWN,
-                'text' => "Please tap the button below to choose options!",
+                'text' => "Thanks for sharing your number. Please tap the button below to choose options!",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                    [
-                        InlineKeyboardButton::make('Play Lottery')->setWebApp("https://telegram.afriluck.com/"),
-                    ]
+                    [InlineKeyboardButton::make('🟢 Play for free')->setCallbackData('free_play')],
+                    [InlineKeyboardButton::make('🔴 Play with cash')->setCallbackData('show_cash_games')]
                 ])
             ]);
+        } elseif ($text && strpos($text, ',') !== false) {
+            // Possible numbers sent by the user, let's validate
+            $numbers = explode(',', $text);
+            $numbers = array_map('trim', $numbers); // Trim spaces
+            $valid = true;
 
-//            yield Request::sendMessage([
-//                'chat_id' => $message->getChat()->getId(),
-//                'parse_mode' => ParseMode::MARKDOWN,
-//                'text' => "Please tap the button below to choose options!",
-//                'reply_markup' => InlineKeyboard::make()->setKeyboard([
-//                    [
-//                        InlineKeyboardButton::make('Play Lottery')->setWebApp("https://telegram.afriluck.com/"),
-//                    ]
-//                ])
-//            ]);
+            if (count($numbers) != 6) {
+                $valid = false;
+            } else {
+                foreach ($numbers as $number) {
+                    if (!is_numeric($number) || $number < 1 || $number > 57 || count(array_unique($numbers)) != 6) {
+                        $valid = false;
+                        break;
+                    }
+                }
+            }
+
+            if ($valid) {
+                yield Request::sendMessage([
+                    'chat_id' => $message->getChat()->getId(),
+                    'text' => "Thanks for playing AfriLuck's free lottery. Good luck!"
+                ]);
+            } else {
+                yield Request::sendMessage([
+                    'chat_id' => $message->getChat()->getId(),
+                    'text' => "Please type 6 unique numbers from 1 to 57 separated by commas."
+                ]);
+            }
         }
-        
 
-        if ($message->getText() == '/test') {
-            yield Request::sendMessage([
-                'chat_id' => $message->getChat()->getId(),
-                'parse_mode' => ParseMode::MARKDOWN,
-                'text' => "Please tap the button below to open the web app!",
-                'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                    [
-                        InlineKeyboardButton::make('Test')->setWebApp($_ENV['RESOURCE_PATH'] . '/demo.php'),
-                    ]
-                ])
-            ]);
-        }
-
-        // if ($message->getText() == '/help') {
-        //     yield Request::sendMessage([
-        //         'chat_id' => $message->getChat()->getId(),
-        //         'text' => "This is the help page. You can use the following commands:\n\n" .
-        //             "/start - Start the bot\n" .
-        //             "/order - Order a burger\n" .
-        //             "/test - Test the web app\n" .
-        //             "/help - Show this help page"
-        //     ]);
-        // }
-
-        if ($message->getText() == '/help') {
+        if ($text == '/help') {
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
                 'text' => "This is the help page. You can use the following commands:\n\n" .
@@ -111,5 +82,6 @@ class CommandsDeprecated extends \TelegramBot\Plugin
             ]);
         }
     }
+
 
 }

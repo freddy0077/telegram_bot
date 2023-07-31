@@ -30,15 +30,14 @@ class Commands extends \TelegramBot\Plugin
                     ])
             ]);
         } elseif ($contact && $contact->getPhoneNumber()) {
-            // Process received phone number
-            $phoneNumber = $contact->getPhoneNumber();
+            // Asking for mobile network after phone number has been shared
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
-                'parse_mode' => ParseMode::MARKDOWN,
-                'text' => "Thanks for sharing your number. Please tap the button below to choose options!",
+                'text' => "Please select your mobile network:",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                    [InlineKeyboardButton::make('🟢 Play for free')->setCallbackData('free_play')],
-                    [InlineKeyboardButton::make('🔴 Play with cash')->setCallbackData('show_cash_games')]
+                    [InlineKeyboardButton::make('MTN')->setCallbackData('mtn')],
+                    [InlineKeyboardButton::make('Vodafone')->setCallbackData('vodafone')],
+                    [InlineKeyboardButton::make('AirtelTigo')->setCallbackData('airteltigo')]
                 ])
             ]);
         } elseif ($text && strpos($text, ',') !== false) {
@@ -61,16 +60,15 @@ class Commands extends \TelegramBot\Plugin
             if ($valid) {
                 yield Request::sendMessage([
                     'chat_id' => $message->getChat()->getId(),
-                    'text' => "Thanks for sending your numbers. Good luck!"
+                    'text' => "Thanks for playing AfriLuck's free lottery. Good luck!"
                 ]);
             } else {
                 yield Request::sendMessage([
                     'chat_id' => $message->getChat()->getId(),
-                    'text' => "Please send 6 unique numbers from 1 to 57 separated by commas."
+                    'text' => "Please type 6 unique numbers from 1 to 57 separated by commas."
                 ]);
             }
         }
-
         if ($text == '/help') {
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
