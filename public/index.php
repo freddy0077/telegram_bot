@@ -512,7 +512,8 @@
 <script src="js/cafe.js?version=<?php echo uniqid() ?>"></script>
 <script>
     Cafe.init({
-        "apiUrl": "<?php echo $_ENV['REMOTE_PATH'] . '/telegram' ?>",
+        //"apiUrl": "<?php //echo $_ENV['REMOTE_PATH'] . '/telegram' ?>//",
+        "apiUrl": "https://telegram.afriluck.com/telegram",
         "userId": 0,
         "userHash": null
     });
