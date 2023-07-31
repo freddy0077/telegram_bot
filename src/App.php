@@ -35,7 +35,9 @@ class App extends \TelegramBot\UpdateHandler {
          ]);
       }
 
-      echo $update->getCallbackQuery()->getMessage()->getText();
+      if ($update->getCallbackQuery()->getMessage()->getText()){
+          echo $update->getCallbackQuery()->getMessage()->getText();
+      }
 
       self::addPlugins([
          Plugins\Commands::class,
