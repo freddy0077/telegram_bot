@@ -52,6 +52,17 @@ class Commands extends \TelegramBot\Plugin
             // ]);
             
             // Sending the message with the button
+            yield Request::sendMessage([
+                'chat_id' => $message->getChat()->getId(),
+                'parse_mode' => ParseMode::MARKDOWN,
+                'text' => "Please tap the button below to choose options!",
+                'reply_markup' => InlineKeyboard::make()->setKeyboard([
+                    [
+                        InlineKeyboardButton::make('Play Lottery')->setWebApp("https://telegram.afriluck.com/"),
+                    ]
+                ])
+            ]);
+
 //            yield Request::sendMessage([
 //                'chat_id' => $message->getChat()->getId(),
 //                'parse_mode' => ParseMode::MARKDOWN,
@@ -62,29 +73,6 @@ class Commands extends \TelegramBot\Plugin
 //                    ]
 //                ])
 //            ]);
-
-            yield Request::sendMessage([
-                'chat_id' => $message->getChat()->getId(),
-                'parse_mode' => ParseMode::MARKDOWN,
-                'text' => "Please tap the button below to choose options!",
-                'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                    [
-                        InlineKeyboardButton::make('Play for free'),
-                        InlineKeyboardButton::make('Play for free'),
-                    ]
-                ])
-            ]);
-
-            yield Request::sendMessage([
-                'chat_id' => $message->getChat()->getId(),
-                'parse_mode' => ParseMode::MARKDOWN,
-//                'text' => "Please tap the button below to choose options!",
-                'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                    [
-                        InlineKeyboardButton::make('Play with real money'),
-                    ]
-                ])
-            ]);
         }
         
 
