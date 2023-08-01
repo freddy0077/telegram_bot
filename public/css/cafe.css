@@ -485,6 +485,11 @@ body.loading .loading-icon {
   --radius: 9px;
 }
 
+.disabled {
+  opacity: 0.5;
+  pointer-events: none; /* This makes the element and its children not respond to mouse events */
+}
+
 @-webkit-keyframes rotate-circle {
   from { transform: rotateZ(-90deg); }
   to   { transform: rotateZ(630deg); }
