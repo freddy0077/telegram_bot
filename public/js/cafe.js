@@ -41,6 +41,15 @@ var Cafe = {
         }).onClick(Cafe.mainBtnClicked);
         initRipple();
     },
+    // 1. Disable other items
+    disableOtherItems: function (currentItem) {
+        $(".js-item").not(currentItem).addClass('disabled').off("click");
+    },
+
+    // 2. Enable all items
+    enableAllItems: function () {
+        $(".js-item").removeClass('disabled').on("click", Cafe.eLottieClicked); // Assuming `eLottieClicked` is your item click handler
+    },
     initLotties: function () {
         $(".js-item-lottie").each(function () {
             RLottie.init(this, {
@@ -54,8 +63,28 @@ var Cafe = {
         if (Cafe.isClosed) {
             return false;
         }
+
+        var itemEl = $(this);
+
+        // If the clicked item was already selected, deselect it and enable all other items
+        if (itemEl.hasClass('selected')) {
+            itemEl.removeClass('selected');
+            Cafe.enableAllItems();
+        } else {
+            // Otherwise, select this item and disable all other items
+            itemEl.addClass('selected');
+            Cafe.disableOtherItems(itemEl);
+        }
+
         RLottie.playOnce(this);
     },
+
+    // eLottieClicked: function (e) {
+    //     if (Cafe.isClosed) {
+    //         return false;
+    //     }
+    //     RLottie.playOnce(this);
+    // },
     eIncrClicked: function (e) {
         e.preventDefault();
         var itemEl = $(this).parents(".js-item");
