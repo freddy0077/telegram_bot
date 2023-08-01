@@ -4,12 +4,11 @@
         <div class="cafe-item-photo">
             <picture class="cafe-item-lottie js-item-lottie">
                 <source type="application/x-tgsticker" srcset="../img/tgs/Burger.tgs">
-                <img src="../img/rsz_lottery-circle.png"
-                     alt="Burger">
+                <img src="../img/rsz_lottery-circle.png" alt="Burger Picture">
             </picture>
         </div>
         <div class="cafe-item-label">
-            <span class="cafe-item-title">Mega</span>
+            <span class="cafe-item-title">Burger</span>
             <span class="cafe-item-price">GHS5</span>
         </div>
         <div class="cafe-item-buttons">
@@ -22,17 +21,17 @@
             </button>
         </div>
     </div>
+
     <div class="cafe-item js-item" data-item-id="2" data-item-price="1490">
         <div class="cafe-item-counter js-item-counter">1</div>
         <div class="cafe-item-photo">
             <picture class="cafe-item-lottie js-item-lottie">
                 <source type="application/x-tgsticker" srcset="../img/tgs/Fries.tgs">
-                <img src="../img/rsz_lottery-circle.png"
-                     alt="Fries">
+                <img src="../img/rsz_lottery-circle.png" alt="Fries Picture">
             </picture>
         </div>
         <div class="cafe-item-label">
-            <span class="cafe-item-title">Mega</span>
+            <span class="cafe-item-title">Fries</span>
             <span class="cafe-item-price">GHS10</span>
         </div>
         <div class="cafe-item-buttons">
@@ -45,16 +44,17 @@
             </button>
         </div>
     </div>
+
     <div class="cafe-item js-item" data-item-id="3" data-item-price="3490">
         <div class="cafe-item-counter js-item-counter">1</div>
         <div class="cafe-item-photo">
             <picture class="cafe-item-lottie js-item-lottie">
                 <source type="application/x-tgsticker" srcset="../img/tgs/Hotdog.tgs">
-                <img src="../img/rsz_lottery-circle.png">
+                <img src="../img/rsz_lottery-circle.png" alt="Hotdog Picture">
             </picture>
         </div>
         <div class="cafe-item-label">
-            <span class="cafe-item-title">Mega</span>
+            <span class="cafe-item-title">Hotdog</span>
             <span class="cafe-item-price">GHS20</span>
         </div>
         <div class="cafe-item-buttons">
@@ -67,7 +67,6 @@
             </button>
         </div>
     </div>
-
 
     <div class="cafe-item-shadow"></div>
     <div class="cafe-item-shadow"></div>
