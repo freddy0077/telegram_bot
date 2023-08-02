@@ -58,6 +58,7 @@ var Cafe = {
             });
         });
     },
+
     eLottieClicked: function (e) {
         if (Cafe.isClosed) {
             return false;
@@ -65,22 +66,40 @@ var Cafe = {
 
         var itemEl = $(this);
 
-        // // If the clicked item was already selected, deselect it and enable all other items
-        // if (itemEl.hasClass('selected')) {
-        //     itemEl.removeClass('selected');
-        //     Cafe.enableAllItems();
-        // } else {
-        //     // Otherwise, select this item and disable all other items
-        //     itemEl.addClass('selected');
-        //     Cafe.disableOtherItems(itemEl);
-        // }
+        // Send message to telegram when an item is clicked
+        Cafe.sendMessageToTelegram("A menu item was clicked: " + itemEl.text());
 
-        Telegram.WebApp.close()
-        var chatId = '5309455764'; // Replace with your chat ID
-        var itemName = itemEl.data('item-price'); // Assuming each item has a data-attribute called 'item-name'
-        Cafe.sendTelegramMessage(chatId, "A menu item was clicked: " + itemName);
+        if (itemEl.hasClass('selected')) {
+            itemEl.removeClass('selected');
+            Cafe.enableAllItems();
+        } else {
+            itemEl.addClass('selected');
+            Cafe.disableOtherItems(itemEl);
+        }
 
         RLottie.playOnce(this);
+    },
+
+    sendMessageToTelegram: function(messageText) {
+        const token = "6363625269:AAG6um8QpSNJgNxJpKsd4KZRNxZ8LSrFX20"; // replace with your Telegram bot token
+        const chat_id = "5309455764"; // replace with the chat ID or user ID where you want to send the message
+
+        const endpoint = `https://api.telegram.org/bot${token}/sendMessage`;
+
+        $.ajax({
+            url: endpoint,
+            method: "POST",
+            data: {
+                chat_id: chat_id,
+                text: messageText
+            },
+            success: function(response) {
+                console.log("Message sent successfully!", response);
+            },
+            error: function(err) {
+                console.error("Failed to send message:", err);
+            }
+        });
     },
 
     // eLottieClicked: function (e) {
