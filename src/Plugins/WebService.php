@@ -32,8 +32,8 @@ class WebService extends \TelegramBot\Plugin
         yield Request::sendMessage([
             'chat_id' => $webAppData->getUser()->getId(),
             'parse_mode' => ParseMode::MARKDOWN,
-            'text' => "This is the test from ! 🍟" . "\n\n" .
-                "Your order is: \n`" . $this->parseOrder($webAppData->getRawData()) . "`" . "\n" .
+            'text' => "Your order has been placed successfully! 🍟" . "\n\n" .
+                "Your order is: \n`" . ($webAppData->getRawData()['option']) . "`" . "\n" .
                 "Your order will be delivered to you in 30 minutes. 🚚",
         ]);
 

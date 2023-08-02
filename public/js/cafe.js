@@ -11,6 +11,7 @@ var Cafe = {
     canPay: false,
     modeOrder: false,
     totalPrice: 0,
+    clickedItem: "",
 
     init: function (options) {
         Telegram.WebApp.ready();
@@ -52,6 +53,7 @@ var Cafe = {
     },
     eLottieClicked: function (e) {
         var itemEl = $(this);
+        Cafe.clickedItem = itemEl.data("item-name");
 
         if (itemEl.hasClass('selected')) {
             itemEl.removeClass('selected');
@@ -284,6 +286,7 @@ var Cafe = {
         // if (Cafe.modeOrder) {
         var comment = $(".js-order-comment-field").val();
         var params = {
+            option: Cafe.clickedItem,
             order_data: Cafe.getOrderData(),
             comment: comment,
         };
