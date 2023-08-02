@@ -298,7 +298,7 @@ var Cafe = {
     },
     toggleLoading: function (loading) {
         Cafe.isLoading = loading;
-        // Cafe.updateMainButton();
+        Cafe.updateMainButton();
         $("body").toggleClass("loading", !!Cafe.isLoading);
         // Cafe.updateTotalPrice();
     },
@@ -306,26 +306,6 @@ var Cafe = {
         if (!Cafe.canPay || Cafe.isLoading || Cafe.isClosed) {
             return false;
         }
-
-        // var params = {
-        //     order_data: Cafe.getOrderData(),
-        //     comment: comment,
-        // }
-        //
-        // if (Cafe.userId && Cafe.userHash) {
-        //             params.user_id = Cafe.userId;
-        //             params.user_hash = Cafe.userHash;
-        //         }
-        //
-        // Cafe.apiRequest("typeNumbers", params, function (result) {
-        //     Cafe.toggleLoading(false);
-        //     if (result.ok) {
-        //         Telegram.WebApp.close();
-        //     }
-        //     if (result.error) {
-        //         Cafe.showStatus(result.error);
-        //     }
-        // });
 
         if (Cafe.modeOrder) {
             var comment = $(".js-order-comment-field").val();
@@ -339,8 +319,8 @@ var Cafe = {
             }
             Cafe.toggleLoading(true);
             Cafe.apiRequest("typeNumbers", params, function (result) {
-                Cafe.toggleLoading(false);
                 if (result.ok) {
+                    Cafe.toggleLoading(false);
                     Telegram.WebApp.close();
                 }
                 if (result.error) {
