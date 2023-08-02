@@ -88,12 +88,12 @@ var Cafe = {
     eIncrClicked: function (e) {
         e.preventDefault();
         var itemEl = $(this).parents(".js-item");
-        Cafe.incrClicked(itemEl, 1);
+        // Cafe.incrClicked(itemEl, 1);
     },
     eDecrClicked: function (e) {
         e.preventDefault();
         var itemEl = $(this).parents(".js-item");
-        Cafe.incrClicked(itemEl, -1);
+        // Cafe.incrClicked(itemEl, -1);
     },
     eEditClicked: function (e) {
         e.preventDefault();
@@ -214,7 +214,7 @@ var Cafe = {
             mainButton
                 .setParams({
                     is_visible: !!Cafe.canPay,
-                    text: "VIEW ORDER",
+                    text: "CHOOSE 6 NUMBERS",
                     color: "#31b545",
                 })
                 .hideProgress();
