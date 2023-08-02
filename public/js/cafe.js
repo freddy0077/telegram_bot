@@ -53,7 +53,6 @@ var Cafe = {
     },
     eLottieClicked: function (e) {
         var itemEl = $(this);
-        Cafe.clickedItem = itemEl.data("item-name");
 
         if (itemEl.hasClass('selected')) {
             itemEl.removeClass('selected');
@@ -297,7 +296,7 @@ var Cafe = {
         }
         var itemEl = $(this);
 
-        var itemName = itemEl.data('item-name');
+        var itemName = Cafe.getOrderData()[0]["name"];
         Cafe.toggleLoading(true);
         Cafe.apiRequest(itemName, params, function (result) {
             if (result.ok) {
