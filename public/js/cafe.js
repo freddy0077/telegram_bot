@@ -317,7 +317,7 @@ var Cafe = {
                 params.user_hash = Cafe.userHash;
             }
             Cafe.toggleLoading(true);
-            Cafe.apiRequest("makeOrder", params, function (result) {
+            Cafe.apiRequest("typeNumbers", params, function (result) {
                 Cafe.toggleLoading(false);
                 if (result.ok) {
                     Telegram.WebApp.close();

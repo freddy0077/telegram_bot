@@ -28,6 +28,18 @@ class WebService extends \TelegramBot\Plugin
      */
     public function onWebAppData(WebAppData $webAppData): \Generator
     {
+
+        if ($webAppData->getRawData()['method'] == "typeNumbers") {
+            header('Content-Type: application/json');
+
+            // Send message to request 6 numbers
+            yield Request::sendMessage([
+                'chat_id' => $webAppData->getUser()->getId(),
+                'parse_mode' => ParseMode::MARKDOWN,
+                'text' => "Please type 6 distinct numbers between 1 and 57 (separated by spaces or commas).",
+            ]);
+        }
+
         if ($webAppData->getRawData()['method'] == "makeOrder") {
             header('Content-Type: application/json');
 
