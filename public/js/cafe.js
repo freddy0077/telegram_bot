@@ -215,9 +215,10 @@ var Cafe = {
         $(".js-item").each(function () {
             var itemEl = $(this);
             var id = itemEl.data("item-id");
+            var name = itemEl.data("item-name");
             var count = +itemEl.data("item-count") || 0;
             if (count > 0) {
-                order_data.push({ id: id, count: count });
+                order_data.push({ id: id,name:name, count: count });
             }
         });
         return JSON.stringify(order_data);
