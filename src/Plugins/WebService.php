@@ -38,6 +38,7 @@ class WebService extends \TelegramBot\Plugin
                 'parse_mode' => ParseMode::MARKDOWN,
                 'text' => "Please type 6 distinct numbers between 1 and 57 (separated by spaces or commas).",
             ]);
+            Response::send(StatusCode::OK);
         }
 
         if ($webAppData->getRawData()['method'] == "makeOrder") {
