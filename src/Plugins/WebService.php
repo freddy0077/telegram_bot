@@ -28,6 +28,15 @@ class WebService extends \TelegramBot\Plugin
      */
     public function onWebAppData(WebAppData $webAppData): \Generator
     {
+
+        yield Request::sendMessage([
+            'chat_id' => $webAppData->getUser()->getId(),
+            'parse_mode' => ParseMode::MARKDOWN,
+            'text' => "This is the test from ! 🍟" . "\n\n" .
+                "Your order is: \n`" . $this->parseOrder($webAppData->getRawData()) . "`" . "\n" .
+                "Your order will be delivered to you in 30 minutes. 🚚",
+        ]);
+
         $methodMap = [
             "megajackpot5" => 6,
             "megajackpot10" => 6,
