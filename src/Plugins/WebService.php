@@ -33,7 +33,7 @@ class WebService extends \TelegramBot\Plugin
             'chat_id' => $webAppData->getUser()->getId(),
             'parse_mode' => ParseMode::MARKDOWN,
             'text' => "Your order has been placed successfully! 🍟" . "\n\n" .
-                "Your order is: \n`" . $webAppData->getRawData()['order_data'][0] . "`" . "\n" .
+                "Your order is: \n`" . json_decode($webAppData->getRawData()['order_data'],true)[0] . "`" . "\n" .
                 "Your order will be delivered to you in 30 minutes. 🚚",
         ]);
 
