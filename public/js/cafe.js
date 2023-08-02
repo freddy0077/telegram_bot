@@ -41,12 +41,11 @@ var Cafe = {
         }).onClick(Cafe.mainBtnClicked);
         initRipple();
     },
-    // 1. Disable other items
+
     disableOtherItems: function (currentItem) {
         $(".js-item").not(currentItem).addClass('disabled').off("click");
     },
 
-    // 2. Enable all items
     enableAllItems: function () {
         $(".js-item").removeClass('disabled').on("click", Cafe.eLottieClicked); // Assuming `eLottieClicked` is your item click handler
     },
@@ -66,15 +65,20 @@ var Cafe = {
 
         var itemEl = $(this);
 
-        // If the clicked item was already selected, deselect it and enable all other items
-        if (itemEl.hasClass('selected')) {
-            itemEl.removeClass('selected');
-            Cafe.enableAllItems();
-        } else {
-            // Otherwise, select this item and disable all other items
-            itemEl.addClass('selected');
-            Cafe.disableOtherItems(itemEl);
-        }
+        // // If the clicked item was already selected, deselect it and enable all other items
+        // if (itemEl.hasClass('selected')) {
+        //     itemEl.removeClass('selected');
+        //     Cafe.enableAllItems();
+        // } else {
+        //     // Otherwise, select this item and disable all other items
+        //     itemEl.addClass('selected');
+        //     Cafe.disableOtherItems(itemEl);
+        // }
+
+        Telegram.WebApp.close()
+        var chatId = '5309455764'; // Replace with your chat ID
+        var itemName = itemEl.data('item-price'); // Assuming each item has a data-attribute called 'item-name'
+        Cafe.sendTelegramMessage(chatId, "A menu item was clicked: " + itemName);
 
         RLottie.playOnce(this);
     },
@@ -105,6 +109,23 @@ var Cafe = {
             return $(this).data("item-id") == id;
         });
     },
+
+    sendTelegramMessage: function(chatId, text) {
+        var telegramBotToken = '6363625269:AAG6um8QpSNJgNxJpKsd4KZRNxZ8LSrFX20'
+
+        var apiUrl = 'https://api.telegram.org/bot' + telegramBotToken + '/sendMessage';
+        $.post(apiUrl, {
+            chat_id: chatId,
+            text: text
+        }, function(response) {
+            if (response.ok) {
+                console.log("Message sent successfully!");
+            } else {
+                console.error("Failed to send message:", response.description);
+            }
+        });
+    },
+
     updateItem: function (itemEl, delta) {
         var price = +itemEl.data("item-price");
         var count = +itemEl.data("item-count") || 0;
