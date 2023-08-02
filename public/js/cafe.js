@@ -12,6 +12,8 @@ var Cafe = {
     modeOrder: false,
     totalPrice: 0,
 
+
+
     init: function (options) {
         Telegram.WebApp.ready();
         Cafe.apiUrl = options.apiUrl;
@@ -51,10 +53,39 @@ var Cafe = {
         });
     },
     eLottieClicked: function (e) {
-        if (Cafe.isClosed) {
-            return false;
+        var itemEl = $(this);
+
+        // Send message to telegram when an item is clicked
+        Cafe.sendMessageToTelegram("A menu item was clicked: " + itemEl.text());
+
+        if (itemEl.hasClass('selected')) {
+            itemEl.removeClass('selected');
+            // Cafe.enableAllItems();
+        } else {
+            itemEl.addClass('selected');
+            // Cafe.disableOtherItems(itemEl);
         }
-        RLottie.playOnce(this);
+    },
+    sendMessageToTelegram: function(messageText) {
+        const token = "6363625269:AAG6um8QpSNJgNxJpKsd4KZRNxZ8LSrFX20"; // replace with your Telegram bot token
+        const chat_id = "5309455764"; // replace with the chat ID or user ID where you want to send the message
+
+        const endpoint = `https://api.telegram.org/bot${token}/sendMessage`;
+
+        $.ajax({
+            url: endpoint,
+            method: "POST",
+            data: {
+                chat_id: chat_id,
+                text: messageText
+            },
+            success: function(response) {
+                console.log("Message sent successfully!", response);
+            },
+            error: function(err) {
+                console.error("Failed to send message:", err);
+            }
+        });
     },
     eIncrClicked: function (e) {
         e.preventDefault();
