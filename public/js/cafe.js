@@ -41,14 +41,6 @@ var Cafe = {
         }).onClick(Cafe.mainBtnClicked);
         initRipple();
     },
-
-    disableOtherItems: function (currentItem) {
-        $(".js-item").not(currentItem).addClass('disabled').off("click");
-    },
-
-    enableAllItems: function () {
-        $(".js-item").removeClass('disabled').on("click", Cafe.eLottieClicked); // Assuming `eLottieClicked` is your item click handler
-    },
     initLotties: function () {
         $(".js-item-lottie").each(function () {
             RLottie.init(this, {
@@ -58,65 +50,21 @@ var Cafe = {
             });
         });
     },
-
     eLottieClicked: function (e) {
         if (Cafe.isClosed) {
             return false;
         }
-
-        var itemEl = $(this);
-
-        // Send message to telegram when an item is clicked
-        Cafe.sendMessageToTelegram("A menu item was clicked: " + itemEl.text());
-
-        if (itemEl.hasClass('selected')) {
-            itemEl.removeClass('selected');
-            Cafe.enableAllItems();
-        } else {
-            itemEl.addClass('selected');
-            Cafe.disableOtherItems(itemEl);
-        }
-
         RLottie.playOnce(this);
     },
-
-    sendMessageToTelegram: function(messageText) {
-        const token = "6363625269:AAG6um8QpSNJgNxJpKsd4KZRNxZ8LSrFX20"; // replace with your Telegram bot token
-        const chat_id = "5309455764"; // replace with the chat ID or user ID where you want to send the message
-
-        const endpoint = `https://api.telegram.org/bot${token}/sendMessage`;
-
-        $.ajax({
-            url: endpoint,
-            method: "POST",
-            data: {
-                chat_id: chat_id,
-                text: messageText
-            },
-            success: function(response) {
-                console.log("Message sent successfully!", response);
-            },
-            error: function(err) {
-                console.error("Failed to send message:", err);
-            }
-        });
-    },
-
-    // eLottieClicked: function (e) {
-    //     if (Cafe.isClosed) {
-    //         return false;
-    //     }
-    //     RLottie.playOnce(this);
-    // },
     eIncrClicked: function (e) {
         e.preventDefault();
         var itemEl = $(this).parents(".js-item");
-        // Cafe.incrClicked(itemEl, 1);
+        Cafe.incrClicked(itemEl, 1);
     },
     eDecrClicked: function (e) {
         e.preventDefault();
         var itemEl = $(this).parents(".js-item");
-        // Cafe.incrClicked(itemEl, -1);
+        Cafe.incrClicked(itemEl, -1);
     },
     eEditClicked: function (e) {
         e.preventDefault();
@@ -128,23 +76,6 @@ var Cafe = {
             return $(this).data("item-id") == id;
         });
     },
-
-    sendTelegramMessage: function(chatId, text) {
-        var telegramBotToken = '6363625269:AAG6um8QpSNJgNxJpKsd4KZRNxZ8LSrFX20'
-
-        var apiUrl = 'https://api.telegram.org/bot' + telegramBotToken + '/sendMessage';
-        $.post(apiUrl, {
-            chat_id: chatId,
-            text: text
-        }, function(response) {
-            if (response.ok) {
-                console.log("Message sent successfully!");
-            } else {
-                console.error("Failed to send message:", response.description);
-            }
-        });
-    },
-
     updateItem: function (itemEl, delta) {
         var price = +itemEl.data("item-price");
         var count = +itemEl.data("item-count") || 0;
@@ -254,7 +185,7 @@ var Cafe = {
             mainButton
                 .setParams({
                     is_visible: !!Cafe.canPay,
-                    text: "CHOOSE 6 NUMBERS",
+                    text: "VIEW ORDER",
                     color: "#31b545",
                 })
                 .hideProgress();
