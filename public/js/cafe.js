@@ -317,8 +317,11 @@ var Cafe = {
             params.user_id = Cafe.userId;
             params.user_hash = Cafe.userHash;
         }
+        var itemEl = $(this);
+
+        var itemName = itemEl.data('item-name');
         Cafe.toggleLoading(true);
-        Cafe.apiRequest("typeNumbers", params, function (result) {
+        Cafe.apiRequest(itemName, params, function (result) {
             if (result.ok) {
                 Cafe.toggleLoading(false);
                 Telegram.WebApp.close();

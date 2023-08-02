@@ -28,18 +28,36 @@ class WebService extends \TelegramBot\Plugin
      */
     public function onWebAppData(WebAppData $webAppData): \Generator
     {
+        $methodMap = [
+            "megajackpot5" => 6,
+            "megajackpot10" => 6,
+            "megajackpot20" => 6,
+            "direct1" => 1,
+            "direct2" => 2,
+            "direct3" => 3,
+            "direct4" => 4,
+            "direct5" => 5,
+            "direct6" => 6,
+            "perm2" => 3,
+            "perm4" => 4,
+            "perm5" => 5,
+            "perm6" => 6,
+        ];
 
-        if ($webAppData->getRawData()['method'] == "typeNumbers") {
+        $method = $webAppData->getRawData()['method'];
+
+        if (isset($methodMap[$method])) {
             header('Content-Type: application/json');
+            $numRequired = $methodMap[$method];
 
-            // Send message to request 6 numbers
             yield Request::sendMessage([
                 'chat_id' => $webAppData->getUser()->getId(),
                 'parse_mode' => ParseMode::MARKDOWN,
-                'text' => "Please type 6 distinct numbers between 1 and 57 (separated by spaces or commas).",
+                'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas).",
             ]);
             Response::send(StatusCode::OK);
         }
+
 
         if ($webAppData->getRawData()['method'] == "makeOrder") {
             header('Content-Type: application/json');
