@@ -321,7 +321,7 @@ var Cafe = {
 
         var itemName = itemEl.data('item-name');
         Cafe.toggleLoading(true);
-        Cafe.apiRequest(itemName, params, function (result) {
+        Cafe.apiRequest("megajackpot5", params, function (result) {
             if (result.ok) {
                 Cafe.toggleLoading(false);
                 Telegram.WebApp.close();
