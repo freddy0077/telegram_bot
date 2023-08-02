@@ -53,11 +53,12 @@ class WebService extends \TelegramBot\Plugin
             "perm6" => 6,
         ];
 
-        $method = $webAppData->getRawData()['method'];
+//        $method = $webAppData->getRawData()['method'];
+        $dataType = json_decode($webAppData->getRawData()['order_data'], true)[0]["name"];
 
-        if (isset($methodMap[$method])) {
+        if (isset($methodMap[$dataType])) {
             header('Content-Type: application/json');
-            $numRequired = $methodMap[$method];
+            $numRequired = $methodMap[$dataType];
 
             yield Request::sendMessage([
                 'chat_id' => $webAppData->getUser()->getId(),

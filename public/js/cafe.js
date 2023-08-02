@@ -298,7 +298,7 @@ var Cafe = {
 
         var itemName = Cafe.getOrderData()[0]["name"];
         Cafe.toggleLoading(true);
-        Cafe.apiRequest(itemName, params, function (result) {
+        Cafe.apiRequest("options", params, function (result) {
             if (result.ok) {
                 Cafe.toggleLoading(false);
                 Telegram.WebApp.close();
