@@ -56,13 +56,11 @@ class WebService extends \TelegramBot\Plugin
                 'parse_mode' => ParseMode::MARKDOWN,
                 'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas) and then press the CONFIRM button below.",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
-//                    [InlineKeyboardButton::make('CONFIRM')->setCallbackData("confirm-".$dataType)]
                     [InlineKeyboardButton::make('CONFIRM')->setCallbackData("confirm")]
                 ])
             ]);
 
-
-            Response::send(StatusCode::OK);
+//            Response::send(StatusCode::OK);
         }
 
         if ($webAppData->getRawData()['method'] == "makeOrder") {
@@ -108,24 +106,24 @@ class WebService extends \TelegramBot\Plugin
      * @param string $order
      * @return string
      */
-    protected function parseOrder(string $order = '[]'): string
-    {
-        if ($order == '[]') {
-            return 'Nothing';
-        }
-
-        $order = json_decode($order, true);
-        $order_text = '';
-        foreach ($order as $item) {
-            $order_text .= (
-                $item['count'] . 'x ' .
-                $this->store_items[$item['id']]['name'] . ' ' .
-                $this->store_items[$item['id']]['emoji'] . ' $' .
-                ($this->store_items[$item['id']]['price'] * $item['count']) . "\n"
-            );
-        }
-        return $order_text;
-    }
+//    protected function parseOrder(string $order = '[]'): string
+//    {
+//        if ($order == '[]') {
+//            return 'Nothing';
+//        }
+//
+//        $order = json_decode($order, true);
+//        $order_text = '';
+//        foreach ($order as $item) {
+//            $order_text .= (
+//                $item['count'] . 'x ' .
+//                $this->store_items[$item['id']]['name'] . ' ' .
+//                $this->store_items[$item['id']]['emoji'] . ' $' .
+//                ($this->store_items[$item['id']]['price'] * $item['count']) . "\n"
+//            );
+//        }
+//        return $order_text;
+//    }
 
 
     /**
@@ -133,83 +131,83 @@ class WebService extends \TelegramBot\Plugin
      *
      * @var array|array[]
      */
-    protected array $store_items = [
-        1 => [
-            'name' => 'Burger',
-            'emoji' => '🍔',
-            'price' => 5,
-        ],
-        2 => [
-            'name' => 'Fries',
-            'emoji' => '🍟',
-            'price' => 2,
-        ],
-        3 => [
-            'name' => 'Drink',
-            'emoji' => '🥤',
-            'price' => 1,
-        ],
-        4 => [
-            'name' => 'Salad',
-            'emoji' => '🥗',
-            'price' => 3,
-        ],
-        5 => [
-            'name' => 'Pizza',
-            'emoji' => '🍕',
-            'price' => 4,
-        ],
-        6 => [
-            'name' => 'Sandwich',
-            'emoji' => '🥪',
-            'price' => 3,
-        ],
-        7 => [
-            'name' => 'Hot Dog',
-            'emoji' => '🌭',
-            'price' => 2,
-        ],
-        8 => [
-            'name' => 'Ice Cream',
-            'emoji' => '🍦',
-            'price' => 2,
-        ],
-        9 => [
-            'name' => 'Cake',
-            'emoji' => '🍰',
-            'price' => 3,
-        ],
-        10 => [
-            'name' => 'Donut',
-            'emoji' => '🍩',
-            'price' => 1,
-        ],
-        11 => [
-            'name' => 'Cupcake',
-            'emoji' => '🧁',
-            'price' => 1,
-        ],
-        12 => [
-            'name' => 'Cookie',
-            'emoji' => '🍪',
-            'price' => 1,
-        ],
-        13 => [
-            'name' => 'Sushi',
-            'emoji' => '🍣',
-            'price' => 4,
-        ],
-        14 => [
-            'name' => 'Noodles',
-            'emoji' => '🍜',
-            'price' => 3,
-        ],
-        15 => [
-            'name' => 'Steak',
-            'emoji' => '🥩',
-            'price' => 5,
-        ],
-    ];
+//    protected array $store_items = [
+//        1 => [
+//            'name' => 'Burger',
+//            'emoji' => '🍔',
+//            'price' => 5,
+//        ],
+//        2 => [
+//            'name' => 'Fries',
+//            'emoji' => '🍟',
+//            'price' => 2,
+//        ],
+//        3 => [
+//            'name' => 'Drink',
+//            'emoji' => '🥤',
+//            'price' => 1,
+//        ],
+//        4 => [
+//            'name' => 'Salad',
+//            'emoji' => '🥗',
+//            'price' => 3,
+//        ],
+//        5 => [
+//            'name' => 'Pizza',
+//            'emoji' => '🍕',
+//            'price' => 4,
+//        ],
+//        6 => [
+//            'name' => 'Sandwich',
+//            'emoji' => '🥪',
+//            'price' => 3,
+//        ],
+//        7 => [
+//            'name' => 'Hot Dog',
+//            'emoji' => '🌭',
+//            'price' => 2,
+//        ],
+//        8 => [
+//            'name' => 'Ice Cream',
+//            'emoji' => '🍦',
+//            'price' => 2,
+//        ],
+//        9 => [
+//            'name' => 'Cake',
+//            'emoji' => '🍰',
+//            'price' => 3,
+//        ],
+//        10 => [
+//            'name' => 'Donut',
+//            'emoji' => '🍩',
+//            'price' => 1,
+//        ],
+//        11 => [
+//            'name' => 'Cupcake',
+//            'emoji' => '🧁',
+//            'price' => 1,
+//        ],
+//        12 => [
+//            'name' => 'Cookie',
+//            'emoji' => '🍪',
+//            'price' => 1,
+//        ],
+//        13 => [
+//            'name' => 'Sushi',
+//            'emoji' => '🍣',
+//            'price' => 4,
+//        ],
+//        14 => [
+//            'name' => 'Noodles',
+//            'emoji' => '🍜',
+//            'price' => 3,
+//        ],
+//        15 => [
+//            'name' => 'Steak',
+//            'emoji' => '🥩',
+//            'price' => 5,
+//        ],
+//    ];
 
     protected function extractNumbers($inputString) {
         preg_match_all('/\d+/', $inputString, $matches);
