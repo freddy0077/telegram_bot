@@ -19,25 +19,26 @@ class Commands extends \TelegramBot\Plugin
         $callback_data = $message->getCallbackQuery() ? $message->getCallbackQuery()->getData() : null;
 
 
-        if ($text !== null && preg_match('/^(\d{1,2}[,\s]+){5}\d{1,2}$/', $message->getText())) {
-//        if ($text !== null && $text == str_contains($text, "megajackpot")) {
-            $numbers = preg_split('/[\s,]+/', $message->getText());
-
-            if (count($numbers) != 6 || count(array_unique($numbers)) != 6 || max($numbers) > 57 || min($numbers) < 1) {
-                Request::sendMessage([
-                    'chat_id' => $message->getChat()->getId(),
-                    'parse_mode' => 'Markdown',
-                    'text' => "Invalid input. Please ensure you're providing 6 distinct numbers between 1 and 57.",
-                ]);
-            }else{
-                Request::sendMessage([
-                    'chat_id' => $message->getChat()->getId(),
-                    'parse_mode' => 'Markdown',
-                    'text' => "not 6 numbers ",
-                ]);
-            }
-        }
-        
+//        if ($text !== null && preg_match('/^(\d{1,2}[,\s]+){5}\d{1,2}$/', $message->getText())) {
+////        if ($text !== null && $text == str_contains($text, "megajackpot")) {
+//            $numbers = preg_split('/[\s,]+/', $message->getText());
+//
+//            if (count($numbers) != 6 || count(array_unique($numbers)) != 6 || max($numbers) > 57 || min($numbers) < 1) {
+//                Request::sendMessage([
+//                    'chat_id' => $message->getChat()->getId(),
+//                    'parse_mode' => 'Markdown',
+//                    'text' => "Invalid input. Please ensure you're providing 6 distinct numbers between 1 and 57.",
+//                ]);
+//            }else{
+//                if ($text !== null ){
+                    Request::sendMessage([
+                        'chat_id' => $message->getChat()->getId(),
+                        'parse_mode' => 'Markdown',
+                        'text' => $text . "-" . $callback_data !== null && $callback_data,
+                    ]);
+//                }
+//            }
+//        }
 
         if ($text == '/start' || $callback_data == 'back_start') {
             // Request phone number
