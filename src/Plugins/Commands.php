@@ -19,27 +19,17 @@ class Commands extends \TelegramBot\Plugin
         $callback_data = $message->getCallbackQuery() ? $message->getCallbackQuery()->getData() : null;
 
 
-//        if ($text !== null && preg_match('/^(\d{1,2}[,\s]+){5}\d{1,2}$/', $message->getText())) {
-////        if ($text !== null && $text == str_contains($text, "megajackpot")) {
-//            $numbers = preg_split('/[\s,]+/', $message->getText());
-//
-//            if (count($numbers) != 6 || count(array_unique($numbers)) != 6 || max($numbers) > 57 || min($numbers) < 1) {
-//                Request::sendMessage([
-//                    'chat_id' => $message->getChat()->getId(),
-//                    'parse_mode' => 'Markdown',
-//                    'text' => "Invalid input. Please ensure you're providing 6 distinct numbers between 1 and 57.",
-//                ]);
-//            }else{
-//                if ($text !== null ){
-                    Request::sendMessage([
-                        'chat_id' => $message->getChat()->getId(),
-                        'parse_mode' => 'Markdown',
-                        'text' => $text,
-//                        'text' => $text . "-" . $callback_data !== null && $callback_data,
-                    ]);
-//                }
-//            }
-//        }
+        if ($text !== null && preg_match('/^(\d{1,2}[,\s]+){5}\d{1,2}$/', $message->getText())) {
+            $numbers = preg_split('/[\s,]+/', $message->getText());
+
+            if (count($numbers) != 6 || count(array_unique($numbers)) != 6 || max($numbers) > 57 || min($numbers) < 1) {
+                Request::sendMessage([
+                    'chat_id' => $message->getChat()->getId(),
+                    'parse_mode' => 'Markdown',
+                    'text' => "Invalid input. Please ensure you're providing 6 distinct numbers between 1 and 57.",
+                ]);
+            }
+        }
 
         if ($text == '/start' || $callback_data == 'back_start') {
             // Request phone number
@@ -64,6 +54,14 @@ class Commands extends \TelegramBot\Plugin
                     [InlineKeyboardButton::make('Back')->setCallbackData('back_start')] // Back button
                 ])
             ]);
+
+        }elseif ($callback_data === 'pay_now'){
+
+            yield Request::sendMessage([
+                'chat_id' => $message->getChat()->getId(),
+                'text' => "Payment request initiated!",
+            ]);
+
         } elseif ($text && strpos($text, ',') !== false) {
             // Possible numbers sent by the user, let's validate
             $numbers = explode(',', $text);
@@ -84,10 +82,9 @@ class Commands extends \TelegramBot\Plugin
             if ($valid) {
                 yield Request::sendMessage([
                     'chat_id' => $message->getChat()->getId(),
-                    'text' => "Thanks for playing AfriLuck's free lottery. Good luck!",
-//                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
-//                        [InlineKeyboardButton::make('PAY')->setCallbackData($dataType)]
-//                    ])
+                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
+                        [InlineKeyboardButton::make('Pay Now')->setCallbackData('pay_now')] // Back button
+                    ])
                 ]);
 
             } else {
