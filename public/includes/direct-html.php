@@ -3,7 +3,7 @@
         <div class="cafe-item-counter js-item-counter">1</div>
         <div class="cafe-item-photo">
             <picture class="cafe-item-lottie js-item-lottie">
-                <source type="application/x-tgsticker" srcset="../img/tgs/Burger.tgs">
+                <source type="application/x-tgsticker" srcset="../img/rsz_lottery-circle.png">
                 <img src="../img/rsz_lottery-circle.png"
                      alt="Burger">
             </picture>

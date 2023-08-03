@@ -29,7 +29,6 @@ $type = $_GET['type'];
 
 <?php
 if ( $type === "megajackpot"){
-
     echo include_once 'includes/megajackpot-html.php';
 
 }elseif ($type === "direct"){
@@ -60,7 +59,8 @@ else {
 
     document.addEventListener("DOMContentLoaded", function() {
 
-        const apiEndpoint = 'https://ussd-app.afriluck.com/api/v2/telegram-lottery-games';
+        // Define the URL for your API endpoint
+        const apiEndpoint = 'https://yourapiendpoint.com/data';
 
         fetch(apiEndpoint)
             .then(response => {
@@ -72,9 +72,9 @@ else {
             .then(data => {
                 let htmlContent = '';
 
-                data.data.forEach(item => {
+                data.forEach(item => {
                     htmlContent += `
-                    <div class="cafe-item js-item" data-item-name="${item.name}" data-item-id="${item.game_id}" data-item-price="${item.price}">
+                    <div class="cafe-item js-item" data-item-id="${item.id}" data-item-price="${item.price}">
                         <div class="cafe-item-counter js-item-counter">${item.counter}</div>
                         <div class="cafe-item-photo">
                             <picture class="cafe-item-lottie js-item-lottie">
