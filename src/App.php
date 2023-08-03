@@ -28,6 +28,13 @@ class App extends \TelegramBot\UpdateHandler {
             $chatId = $callbackQuery->getMessage()->getChat()->getId();
             $callbackData = $callbackQuery->getData();
 
+            Request::sendMessage([
+                'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
+                'reply_markup' => InlineKeyboard::make()->setKeyboard([
+                    [InlineKeyboardButton::make('data'.$callbackData)]
+                ])
+            ]);
+
 
             if (in_array($callbackQuery->getData(), ['mtn', 'vodafone', 'airteltigo'])) {
                  Request::sendMessage([
@@ -67,7 +74,7 @@ class App extends \TelegramBot\UpdateHandler {
                         [InlineKeyboardButton::make('PAY')->setCallbackData("pay-".$callbackQuery->getData())]
                     ])
                 ]);
-                
+
                 if (str_contains($callbackQuery->getData(), "megajackpot")){
                     $total = $this->extractNumbers($callbackQuery->getData());
                     Request::sendMessage([
