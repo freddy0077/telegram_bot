@@ -9,7 +9,7 @@ $data = json_decode($response, true);
     $number = 1;
     foreach ($data['data'] as $item) {
         // Check if game_type_id is 1 and name contains "direct"
-        if (str_contains(strtolower($item['name']), 'direct')) {
+        if (str_contains(strtolower($item['name']), 'perm')) {
 
             // Convert Unix timestamp to human-readable format (optional)
             $beginTime = date('Y-m-d H:i:s', $item['begin_time'] / 1000);
