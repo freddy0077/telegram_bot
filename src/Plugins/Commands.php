@@ -14,10 +14,15 @@ class Commands extends \TelegramBot\Plugin
 {
     public function onMessage(int $update_id, Message $message): \Generator
     {
-//        $text = $message->getText();
         $contact = $message->getContact();
         $text = $message->getText();
         $callback_data = $message->getCallbackQuery() ? $message->getCallbackQuery()->getData() : null;
+
+        Request::sendMessage([
+            'chat_id' => $message->getChat()->getId(),
+            'parse_mode' => 'Markdown',
+            'text' => "callback query.",
+        ]);
 
 
 //        if ($text !== null && preg_match('/^(\d{1,2}[,\s]+){5}\d{1,2}$/', $message->getText())) {
