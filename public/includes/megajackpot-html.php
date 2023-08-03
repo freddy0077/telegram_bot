@@ -21,20 +21,12 @@ $data = json_decode($response, true);
               <source type="application/x-tgsticker" srcset="../img/rsz_lottery-circle.png">-->
                 <img src="../img/rsz_lottery-circle.png" alt="Burger Picture">
             </picture> ';
-        // Add a placeholder for the item photo, you can replace it with actual image tag if you have one
-//        echo '<img src="../img/rsz_lottery-circle.png" alt="' . $item['name'] . '">';
+
         echo '</div>';
         echo '<div class="cafe-item-label">';
         echo '<span class="cafe-item-title">' . $item['name'] . '</span>';
-        echo '<span class="cafe-item-price">GHS' . $item['min_price'] . '-' . $item['max_price'] . '</span>';
+//        echo '<span class="cafe-item-price">GHS' . $item['min_price'] . '-' . $item['max_price'] . '</span>';
         echo '</div>';
-//        echo '<div class="cafe-item-details">';
-//        echo '<p>Min Required: ' . $item['min_required'] . '</p>';
-//        echo '<p>Max Required: ' . $item['max_required'] . '</p>';
-//        echo '<p>Begin Time: ' . $beginTime . '</p>';
-//        echo '<p>End Time: ' . $endTime . '</p>';
-//        echo '<p>Draw Time: ' . $drawTime . '</p>';
-//        echo '</div>';
         echo '<div class="cafe-item-buttons">';
         echo '<button class="cafe-item-decr-button js-item-decr-btn button-item ripple-handler">';
         echo '<span class="ripple-mask"><span class="ripple"></span></span>';
