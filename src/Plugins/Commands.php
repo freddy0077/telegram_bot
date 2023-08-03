@@ -14,9 +14,14 @@ class Commands extends \TelegramBot\Plugin
 {
     public function onMessage(int $update_id, Message $message): \Generator
     {
+//        $text = $message->getText();
+        $contact = $message->getContact();
         $text = $message->getText();
+        $callback_data = $message->getCallbackQuery() ? $message->getCallbackQuery()->getData() : null;
 
-        if ($text !== null && preg_match('/^(\d{1,2}[,\s]+){5}\d{1,2}$/', $message->getText())) {
+
+//        if ($text !== null && preg_match('/^(\d{1,2}[,\s]+){5}\d{1,2}$/', $message->getText())) {
+        if ($text !== null && $text == str_contains($text, "megajackpot")) {
             $numbers = preg_split('/[\s,]+/', $message->getText());
 
             if (count($numbers) != 6 || count(array_unique($numbers)) != 6 || max($numbers) > 57 || min($numbers) < 1) {
@@ -28,9 +33,7 @@ class Commands extends \TelegramBot\Plugin
             }
         }
 
-        $contact = $message->getContact();
-        $text = $message->getText();
-        $callback_data = $message->getCallbackQuery() ? $message->getCallbackQuery()->getData() : null;
+
 
         if ($text == '/start' || $callback_data == 'back_start') {
             // Request phone number
@@ -41,8 +44,8 @@ class Commands extends \TelegramBot\Plugin
                     ->setResizeKeyboard(true)
                     ->setOneTimeKeyboard(true)
                     ->setKeyboard([
-                        [KeyboardButton::make('Share Location')->setRequestLocation(true)]
-//                        [KeyboardButton::make('Share Phone Number')->setRequestContact(true)]
+//                        [KeyboardButton::make('Share Location')->setRequestLocation(true)]
+                        [KeyboardButton::make('Share Phone Number')->setRequestContact(true)]
                     ])
             ]);
         } elseif ($contact && $contact->getPhoneNumber() || $callback_data == 'back_network') {
