@@ -50,7 +50,6 @@ class Commands extends \TelegramBot\Plugin
                     ->setResizeKeyboard(true)
                     ->setOneTimeKeyboard(true)
                     ->setKeyboard([
-//                        [KeyboardButton::make('Share Location')->setRequestLocation(true)]
                         [KeyboardButton::make('Share Phone Number')->setRequestContact(true)]
                     ])
             ]);
