@@ -14,11 +14,6 @@ class App extends \TelegramBot\UpdateHandler {
     {
         Telegram::setAdminId(5309455764);
 
-        Request::sendMessage([
-            'chat_id' => $update->getMessage()->getChat()->getId(),
-            'parse_mode' => 'Markdown',
-            'text' => '`Pong!`',
-        ]);
 
         if ($message = $update->getMessage()) {
             if ($message->getText() === '/ping') {
@@ -71,25 +66,6 @@ class App extends \TelegramBot\UpdateHandler {
                     'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
                     'text' => "Please type 6 unique numbers from 1 to 57 separated by commas."
                 ]);
-            }
-
-            if ($callbackQuery->getData()!== null && str_contains($callbackQuery->getData(), "confirm")) {
-                Request::sendMessage([
-                    'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
-                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                        [InlineKeyboardButton::make('PAY')->setCallbackData("pay-".$callbackQuery->getData())]
-                    ])
-                ]);
-
-                if (str_contains($callbackQuery->getData(), "megajackpot")){
-                    $total = $this->extractNumbers($callbackQuery->getData());
-                    Request::sendMessage([
-                        'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
-                        'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                            [InlineKeyboardButton::make('PAY'. $total. 'GHS')->setCallbackData("pay-".$callbackQuery->getData())]
-                        ])
-                    ]);
-                }
             }
         }
 
