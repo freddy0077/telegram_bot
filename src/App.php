@@ -70,8 +70,6 @@ class App extends \TelegramBot\UpdateHandler {
             }
         }
 
-
-
         self::addPlugins([
             Plugins\Commands::class,
             Plugins\WebService::class,
