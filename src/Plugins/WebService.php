@@ -50,15 +50,28 @@ class WebService extends \TelegramBot\Plugin
         if (isset($methodMap[$dataType])) {
             header('Content-Type: application/json');
             $numRequired = $methodMap[$dataType];
+            $amount = $this->extractNumbers($methodMap);
 
-            yield Request::sendMessage([
-                'chat_id' => $webAppData->getUser()->getId(),
-                'parse_mode' => ParseMode::MARKDOWN,
-                'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas).",
-                'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                    [InlineKeyboardButton::make('CONTINUE')->setCallbackData($dataType)]
-                ])
-            ]);
+            if (str_contains($dataType, "megajackpot")){
+                yield Request::sendMessage([
+                    'chat_id' => $webAppData->getUser()->getId(),
+                    'parse_mode' => ParseMode::MARKDOWN,
+                    'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas).",
+                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
+                        [InlineKeyboardButton::make('PAY '. $amount. 'GHS')->setCallbackData($dataType)]
+                    ])
+                ]);
+            }else{
+                yield Request::sendMessage([
+                    'chat_id' => $webAppData->getUser()->getId(),
+                    'parse_mode' => ParseMode::MARKDOWN,
+                    'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas).",
+                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
+                        [InlineKeyboardButton::make('HOW MUCH DO YOU WANT  TO START WITH?')->setCallbackData($dataType)]
+                    ])
+                ]);
+            }
+
             Response::send(StatusCode::OK);
         }
 
@@ -125,6 +138,7 @@ class WebService extends \TelegramBot\Plugin
         }
         return $order_text;
     }
+
 
     /**
      * The available items in the store.
@@ -208,5 +222,10 @@ class WebService extends \TelegramBot\Plugin
             'price' => 5,
         ],
     ];
+
+    protected function extractNumbers($inputString) {
+        preg_match_all('/\d+/', $inputString, $matches);
+        return implode('', $matches[0]);
+    }
 
 }
