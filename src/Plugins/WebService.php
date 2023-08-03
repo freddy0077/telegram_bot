@@ -55,6 +55,9 @@ class WebService extends \TelegramBot\Plugin
                 'chat_id' => $webAppData->getUser()->getId(),
                 'parse_mode' => ParseMode::MARKDOWN,
                 'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas).",
+                'reply_markup' => InlineKeyboard::make()->setKeyboard([
+                    [InlineKeyboardButton::make('CONTINUE')->setCallbackData($dataType)]
+                ])
             ]);
             Response::send(StatusCode::OK);
         }
