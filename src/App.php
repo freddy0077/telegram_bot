@@ -33,7 +33,6 @@ class App extends \TelegramBot\UpdateHandler {
                 'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
                     [InlineKeyboardButton::make('data from callback')]
-//                    [InlineKeyboardButton::make('data'.$callbackData)]
                 ])
             ]);
 

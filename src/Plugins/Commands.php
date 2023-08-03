@@ -34,7 +34,8 @@ class Commands extends \TelegramBot\Plugin
                     Request::sendMessage([
                         'chat_id' => $message->getChat()->getId(),
                         'parse_mode' => 'Markdown',
-                        'text' => $text . "-" . $callback_data !== null && $callback_data,
+                        'text' => $text,
+//                        'text' => $text . "-" . $callback_data !== null && $callback_data,
                     ]);
 //                }
 //            }

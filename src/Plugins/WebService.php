@@ -61,6 +61,7 @@ class WebService extends \TelegramBot\Plugin
                 ])
             ]);
 
+
             Response::send(StatusCode::OK);
         }
 
