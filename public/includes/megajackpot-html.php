@@ -17,8 +17,12 @@ $data = json_decode($response, true);
         echo '<div class="cafe-item js-item" data-item-id="' . $item['game_id'] . '" data-item-name="' . $item['name'] . '" data-item-price="' . $item['min_price'] . '">';
         echo '<div class="cafe-item-counter js-item-counter">1</div>';
         echo '<div class="cafe-item-photo">';
+        echo '<picture class="cafe-item-lottie js-item-lottie">
+              <source type="application/x-tgsticker" srcset="../img/rsz_lottery-circle.png">-->
+                <img src="../img/rsz_lottery-circle.png" alt="Burger Picture">
+            </picture> ';
         // Add a placeholder for the item photo, you can replace it with actual image tag if you have one
-        echo '<img src="../img/rsz_lottery-circle.png" alt="' . $item['name'] . '">';
+//        echo '<img src="../img/rsz_lottery-circle.png" alt="' . $item['name'] . '">';
         echo '</div>';
         echo '<div class="cafe-item-label">';
         echo '<span class="cafe-item-title">' . $item['name'] . '</span>';
