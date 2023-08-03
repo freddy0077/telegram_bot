@@ -59,7 +59,7 @@ class App extends \TelegramBot\UpdateHandler {
                 ]);
             }
 
-            if (str_contains($callbackQuery->getData(), "megajackpot")) {
+            if ($callbackQuery->getData()!== null && str_contains($callbackQuery->getData(), "megajackpot")) {
                 $total = $this->extractNumbers($callbackQuery->getData());
                 Request::sendMessage([
                     'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
