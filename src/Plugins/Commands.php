@@ -45,7 +45,6 @@ class Commands extends \TelegramBot\Plugin
                     ])
             ]);
         } elseif ($contact && $contact->getPhoneNumber() || $callback_data == 'back_network') {
-            // Asking for mobile network after phone number has been shared
             yield Request::sendMessage([
                 'chat_id' => $message->getChat()->getId(),
                 'text' => "Please select your mobile network:",
@@ -76,8 +75,12 @@ class Commands extends \TelegramBot\Plugin
             if ($valid) {
                 yield Request::sendMessage([
                     'chat_id' => $message->getChat()->getId(),
-                    'text' => "Thanks for playing AfriLuck's free lottery. Good luck!"
+                    'text' => "Thanks for playing AfriLuck's free lottery. Good luck!",
+//                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
+//                        [InlineKeyboardButton::make('PAY')->setCallbackData($dataType)]
+//                    ])
                 ]);
+
             } else {
                 yield Request::sendMessage([
                     'chat_id' => $message->getChat()->getId(),

@@ -58,11 +58,28 @@ class App extends \TelegramBot\UpdateHandler {
                     'text' => "Please type 6 unique numbers from 1 to 57 separated by commas."
                 ]);
             }
+
+            if (str_contains($callbackQuery->getData(), "megajackpot")) {
+                $total = $this->extractNumbers($callbackQuery->getData());
+                Request::sendMessage([
+                    'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
+                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
+                        [InlineKeyboardButton::make('PAY'. $total. 'GHS')->setCallbackData("pay-".$callbackQuery->getData())]
+                    ])
+                ]);
+            }
         }
+
+
 
         self::addPlugins([
             Plugins\Commands::class,
             Plugins\WebService::class,
         ]);
+    }
+
+    protected function extractNumbers($inputString) {
+        preg_match_all('/\d+/', $inputString, $matches);
+        return implode('', $matches[0]);
     }
 }
