@@ -63,12 +63,21 @@ class WebService extends \TelegramBot\Plugin
 
                 yield Request::sendMessage([
                     'chat_id' => $webAppData->getUser()->getId(),
-                    'dataType' => $dataType,
                     'parse_mode' => ParseMode::MARKDOWN,
                     'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas).",
-                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                        [InlineKeyboardButton::make('CONTINUE')->setCallbackData($dataType)]
-                    ])
+                    'reply_markup' => [
+                        'inline_keyboard' => [
+                            [
+                                [
+                                    'text' => 'Confirm',
+                                    'callback_data' => json_encode([
+                                        'action' => 'confirm_input',
+                                        'additional_data' => 'Your additional data here' // Replace this with your own data
+                                    ])
+                                ]
+                            ]
+                        ]
+                    ]
                 ]);
 
             Response::send(StatusCode::OK);
