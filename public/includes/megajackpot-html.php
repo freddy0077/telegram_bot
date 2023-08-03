@@ -14,7 +14,7 @@ $data = json_decode($response, true);
             $endTime = date('Y-m-d H:i:s', $item['end_time'] / 1000);
             $drawTime = date('Y-m-d H:i:s', $item['draw_time'] / 1000);
 
-            echo '<div class="cafe-item js-item" data-item-id="' . $item['game_id'] . '" data-item-name="' . $item['name'] . '" data-item-price="' . $item['min_price'] . '">';
+            echo '<div class="cafe-item js-item" data-item-id="' . $item['game_id'] . '" data-item-name="megajackpot' . $item['min_price'] . '" data-item-price="' . $item['min_price'] . '">';
             echo '<div class="cafe-item-counter js-item-counter">1</div>';
             echo '<div class="cafe-item-photo">';
             echo '<picture class="cafe-item-lottie js-item-lottie">
