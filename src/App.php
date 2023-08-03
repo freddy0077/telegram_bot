@@ -14,6 +14,12 @@ class App extends \TelegramBot\UpdateHandler {
     {
         Telegram::setAdminId(5309455764);
 
+        Request::sendMessage([
+            'chat_id' => $update->getMessage()->getChat()->getId(),
+            'parse_mode' => 'Markdown',
+            'text' => '`Pong!`',
+        ]);
+
         if ($message = $update->getMessage()) {
             if ($message->getText() === '/ping') {
                 Request::sendMessage([
@@ -32,6 +38,7 @@ class App extends \TelegramBot\UpdateHandler {
                 'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
                     [InlineKeyboardButton::make('data'.$callbackData)]
+//                    [InlineKeyboardButton::make('data'.$callbackData)]
                 ])
             ]);
 
