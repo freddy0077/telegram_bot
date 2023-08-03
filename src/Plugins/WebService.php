@@ -50,9 +50,10 @@ class WebService extends \TelegramBot\Plugin
         if (isset($methodMap[$dataType])) {
             header('Content-Type: application/json');
             $numRequired = $methodMap[$dataType];
-            $amount = $this->extractNumbers($methodMap);
 
             if (str_contains($dataType, "megajackpot")){
+                $amount = $this->extractNumbers($dataType);
+
                 yield Request::sendMessage([
                     'chat_id' => $webAppData->getUser()->getId(),
                     'parse_mode' => ParseMode::MARKDOWN,
