@@ -18,7 +18,7 @@ $data = json_decode($response, true);
         echo '<div class="cafe-item-counter js-item-counter">1</div>';
         echo '<div class="cafe-item-photo">';
         // Add a placeholder for the item photo, you can replace it with actual image tag if you have one
-        echo '<img src="path_to_placeholder_image.jpg" alt="' . $item['name'] . '">';
+        echo '<img src="../img/rsz_lottery-circle.png" alt="' . $item['name'] . '">';
         echo '</div>';
         echo '<div class="cafe-item-label">';
         echo '<span class="cafe-item-title">' . $item['name'] . '</span>';
