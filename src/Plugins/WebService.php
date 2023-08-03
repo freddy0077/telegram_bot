@@ -51,27 +51,21 @@ class WebService extends \TelegramBot\Plugin
             header('Content-Type: application/json');
             $numRequired = $methodMap[$dataType];
 
-            if (str_contains($dataType, "megajackpot")){
-                $amount = $this->extractNumbers($dataType);
+
+//                yield Request::sendMessage([
+//                    'chat_id' => $webAppData->getUser()->getId(),
+//                    'parse_mode' => ParseMode::MARKDOWN,
+//                    'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas).",
+////                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
+////                        [InlineKeyboardButton::make('PAY '. $amount. 'GHS')->setCallbackData($dataType)]
+////                    ])
+//                ]);
 
                 yield Request::sendMessage([
                     'chat_id' => $webAppData->getUser()->getId(),
                     'parse_mode' => ParseMode::MARKDOWN,
                     'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas).",
-                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                        [InlineKeyboardButton::make('PAY '. $amount. 'GHS')->setCallbackData($dataType)]
-                    ])
                 ]);
-            }else{
-                yield Request::sendMessage([
-                    'chat_id' => $webAppData->getUser()->getId(),
-                    'parse_mode' => ParseMode::MARKDOWN,
-                    'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas).",
-                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                        [InlineKeyboardButton::make('HOW MUCH DO YOU WANT  TO START WITH?')->setCallbackData($dataType)]
-                    ])
-                ]);
-            }
 
             Response::send(StatusCode::OK);
         }
