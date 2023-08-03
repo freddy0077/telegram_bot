@@ -6,7 +6,8 @@ $data = json_decode($response, true);
 
 <section class="cafe-page cafe-items">
     <?php
-    foreach ($data['data'] as $item => $key) {
+    $number = 0;
+    foreach ($data['data'] as $item) {
         // Check if game_type_id is 1 and name contains "direct"
         if (str_contains(strtolower($item['name']), 'direct')) {
 
@@ -15,7 +16,7 @@ $data = json_decode($response, true);
             $endTime = date('Y-m-d H:i:s', $item['end_time'] / 1000);
             $drawTime = date('Y-m-d H:i:s', $item['draw_time'] / 1000);
 
-            echo '<div class="cafe-item js-item" data-item-id="' . $item['game_id'] . '" data-item-name="direct' . $key+1 . '" data-item-price="' . $item['min_price'] . '">';
+            echo '<div class="cafe-item js-item" data-item-id="' . $item['game_id'] . '" data-item-name="direct' . $number+1 . '" data-item-price="' . $item['min_price'] . '">';
             echo '<div class="cafe-item-counter js-item-counter">1</div>';
             echo '<div class="cafe-item-photo">';
             echo '<picture class="cafe-item-lottie js-item-lottie">
