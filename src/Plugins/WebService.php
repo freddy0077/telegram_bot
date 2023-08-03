@@ -51,30 +51,17 @@ class WebService extends \TelegramBot\Plugin
             header('Content-Type: application/json');
             $numRequired = $methodMap[$dataType];
 
-//            yield Request::sendMessage([
-//                'chat_id' => $webAppData->getUser()->getId(),
-//                'parse_mode' => ParseMode::MARKDOWN,
-//                'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas).",
-//                'reply_markup' => InlineKeyboard::make()->setKeyboard([
-//                    [InlineKeyboardButton::make('CONFIRM')->setCallbackData("confirm")]
-//                ])
-//            ]);
-
             yield Request::sendMessage([
                 'chat_id' => $webAppData->getUser()->getId(),
                 'parse_mode' => ParseMode::MARKDOWN,
                 'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas) and then press the CONFIRM button below.",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                    [InlineKeyboardButton::make('CONFIRM')->setCallbackData("confirm")]
+                    [InlineKeyboardButton::make('CONFIRM')->setCallbackData("confirm-".$dataType)]
                 ])
             ]);
 
             Response::send(StatusCode::OK);
-
-
-            Response::send(StatusCode::OK);
         }
-
 
         if ($webAppData->getRawData()['method'] == "makeOrder") {
             header('Content-Type: application/json');

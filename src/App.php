@@ -59,14 +59,16 @@ class App extends \TelegramBot\UpdateHandler {
                 ]);
             }
 
-            if ($callbackQuery->getData()!== null && str_contains($callbackQuery->getData(), "megajackpot")) {
-                $total = $this->extractNumbers($callbackQuery->getData());
-                Request::sendMessage([
-                    'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
-                    'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                        [InlineKeyboardButton::make('PAY'. $total. 'GHS')->setCallbackData("pay-".$callbackQuery->getData())]
-                    ])
-                ]);
+            if ($callbackQuery->getData()!== null && str_contains($callbackQuery->getData(), "confirm")) {
+                if (str_contains($callbackQuery->getData(), "megajackpot")){
+                    $total = $this->extractNumbers($callbackQuery->getData());
+                    Request::sendMessage([
+                        'chat_id' => $callbackQuery->getMessage()->getChat()->getId(),
+                        'reply_markup' => InlineKeyboard::make()->setKeyboard([
+                            [InlineKeyboardButton::make('PAY'. $total. 'GHS')->setCallbackData("pay-".$callbackQuery->getData())]
+                        ])
+                    ]);
+                }
             }
         }
 
