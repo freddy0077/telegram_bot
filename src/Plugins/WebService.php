@@ -45,36 +45,10 @@ class WebService extends \TelegramBot\Plugin
         $rawData = $webAppData->getRawData();
         $method = $rawData['method'] ?? '';
 
-        switch ($method) {
-            case 'makeOrder':
-                yield $this->handleMakeOrder($webAppData);
-                break;
+        yield $this->handleRequestByDataType($webAppData);
 
-            case 'checkInitData':
-                Response::send(StatusCode::OK);
-                break;
-
-            case 'sendMessage':
-                yield $this->handleSendMessage($webAppData);
-                break;
-
-            default:
-                yield $this->handleRequestByDataType($webAppData);
-        }
     }
 
-    private function handleMakeOrder(WebAppData $webAppData): \Generator
-    {
-        yield Request::sendMessage([
-            'chat_id' => $webAppData->getUser()->getId(),
-            'parse_mode' => ParseMode::MARKDOWN,
-            'text' => "Your order has been placed successfully! 🍟" . "\n\n" .
-                "Your order is: \n`" . $this->parseOrder($webAppData->getRawData()['order_data']) . "`" . "\n" .
-                "Your order will be delivered to you in 30 minutes. 🚚",
-        ]);
-
-        Response::send(StatusCode::OK);
-    }
 
     private function handleSendMessage(WebAppData $webAppData): \Generator
     {
