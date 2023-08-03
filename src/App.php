@@ -35,7 +35,6 @@ class App extends \TelegramBot\UpdateHandler {
                 ])
             ]);
 
-
             if (in_array($callbackQuery->getData(), ['mtn', 'vodafone', 'airteltigo'])) {
                  Request::sendMessage([
                     'chat_id' =>  $callbackQuery->getMessage()->getChat()->getId(),

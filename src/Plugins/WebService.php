@@ -56,7 +56,8 @@ class WebService extends \TelegramBot\Plugin
                 'parse_mode' => ParseMode::MARKDOWN,
                 'text' => "Please type " . ($numRequired == 1 ? "1 number" : "$numRequired distinct numbers") . " between 1 and 57 (separated by spaces or commas) and then press the CONFIRM button below.",
                 'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                    [InlineKeyboardButton::make('CONFIRM')->setCallbackData("confirm-".$dataType)]
+//                    [InlineKeyboardButton::make('CONFIRM')->setCallbackData("confirm-".$dataType)]
+                    [InlineKeyboardButton::make('CONFIRM')->setCallbackData("confirm")]
                 ])
             ]);
 
