@@ -83,7 +83,7 @@ class Commands extends \TelegramBot\Plugin
                 yield Request::sendMessage([
                     'chat_id' => $message->getChat()->getId(),
                     'reply_markup' => InlineKeyboard::make()->setKeyboard([
-                        [InlineKeyboardButton::make('Pay Now')->setCallbackData('pay_now')] // Back button
+                        [InlineKeyboardButton::make('Pay Now')->setCallbackData('pay_now')]
                     ])
                 ]);
 
