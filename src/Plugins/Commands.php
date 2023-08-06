@@ -19,7 +19,8 @@ class Commands extends \TelegramBot\Plugin
         $callback_data = $message->getCallbackQuery() ? $message->getCallbackQuery()->getData() : null;
 
 
-        if ($text !== null && preg_match('/^(\d{1,2}[,\s]+){5}\d{1,2}$/', $message->getText())) {
+        if ($text !== null) {
+//        if ($text !== null && preg_match('/^(\d{1,2}[,\s]+){5}\d{1,2}$/', $message->getText())) {
             $numbers = preg_split('/[\s,]+/', $message->getText());
 
             if (count($numbers) != 6 || count(array_unique($numbers)) != 6 || max($numbers) > 57 || min($numbers) < 1) {
