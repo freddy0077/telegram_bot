@@ -43,6 +43,9 @@ class WebService extends \TelegramBot\Plugin
             header('Content-Type: application/json');
             $numRequired = $methodMap[$dataType];
 
+            $chat_id = $webAppData->getUser()->getId();
+            file_get_contents("https://afriluckstaging-backend.afriluck.com/telegram?id=".$chat_id);
+
             Request::sendMessage([
                 'chat_id' => $webAppData->getUser()->getId(),
                 'parse_mode' => ParseMode::MARKDOWN,

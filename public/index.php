@@ -52,17 +52,12 @@ else {
 <script src="https://tg.dev/js/tgsticker.js?27"></script>
 <script src="js/cafe.js?version=<?php echo uniqid() ?>"></script>
 <script>
-    // Cafe.init({
-    //     "apiUrl": "https://telegram.afriluck.com/telegram",
-    //     "userId": 0,
-    //     "userHash": null
-    // });
-
     Cafe.init({
-        "apiUrl": "https://afriluckstaging-backend.afriluck.com",
+        "apiUrl": "https://telegram.afriluck.com/telegram",
         "userId": 0,
         "userHash": null
     });
+
 
     document.addEventListener("DOMContentLoaded", function() {
 
